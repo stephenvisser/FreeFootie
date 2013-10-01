@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Free Footie Prototype</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css main.css -->
+        <link rel="stylesheet" href="bower_components/topcoat/css/topcoat-mobile-dark.css">
+        <link rel="stylesheet" href="styles/icomatic.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+  <body ng-app="freefootieApp">
+    <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item center full">
+            <h1 class="topcoat-navigation-bar__title" ng-controller="SystemCtrl">{{title}}</h1>
+        </div>
+    </div>
+    <div class="right">
+        <a href="#/ref">Referees</a>
+        <a href="#/admin">Administrators</a>
+        <a href="#/team">Teams</a>
+        <a href="#/standings">Standings</a>
+    </div>
+
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view=""></div>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/ref.js"></script>
+    <script src="scripts/controllers/team.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/standings.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

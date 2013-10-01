@@ -1,0 +1,32 @@
+
+
+<div class="topcoat-list">
+  <h3 class="topcoat-list__header">Today's Games</h3>
+  <ul class="topcoat-list__container">
+    <li ng-repeat="game in games" class="topcoat-list__item">
+	    <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
+	    	<div>
+	    		{{game.home}}
+	    	</div>
+	    	vs
+	    	<div>
+	    		{{game.away}}
+	    	</div>
+	    </div>
+	    @
+	    <span class="location">{{game.location}}</span>
+	    in
+	    <span class="time">({{game.time | timedistance}})</span>
+	    <span class="progress" ng-class="game.state || 'notstarted'"></span>
+	    <button class="topcoat-button" style="margin-left: 20px">Edit Game Details</button>
+    </li>
+  </ul>
+</div>
+
+ <button class="topcoat-button--cta" style="margin: 20px" >Manage Teams</button>
+
+  <button class="topcoat-button--cta" style="margin: 20px">Manage Games</button>
+
+ <button class="topcoat-button--cta" style="margin: 20px" >Manage Venue</button>
+
+<button class="topcoat-button--cta" style="margin: 20px" >Manage Refs</button>

@@ -1,0 +1,28 @@
+.location {
+    font-weight: bold;
+}
+
+.time {
+    font-style: italic;
+    color: lightblue;
+}
+
+.notstarted {
+    background-color: white;
+}
+
+.inprogress {
+    background-color: yellow;
+}
+
+.complete {
+    background-color: green;
+}
+
+.progress {
+    margin-left: 40px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}

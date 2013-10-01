@@ -1,0 +1,11 @@
+
+
+<div class="topcoat-list">
+  <h3 class="topcoat-list__header">Standings</h3>
+  <ul class="topcoat-list__container">
+    <li ng-repeat="team in standings" class="topcoat-list__item">
+	    <span class="location">{{team.name}}:</span> {{team.wins}}-{{team.losses}}-{{team.ties}}
+	    <button class="topcoat-button" style="margin-left: 20px; vertical-align: middle">Team Details</button>
+    </li>
+  </ul>
+</div>
