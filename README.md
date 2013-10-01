@@ -1,4 +1,10 @@
-Starting work on this project is easy. You just need npm and grunt-cli installed on your machine. After that, just follow the steps below:
+Prequisites:
+* node (with npm)
+* grunt-cli (npm package)
+* ruby
+* compass (ruby gem)
+
+Starting work on this project is easy. You just need to install the prereqs for your chosen OS. After that, just follow the steps below:
 
     git clone https://github.com/ConCode/FreeFootie
     cd FreeFootie
