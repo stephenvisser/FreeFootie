@@ -1,3 +1,6 @@
+Join the conversation [here](https://groups.google.com/forum/#!forum/coding-with-a-conscience)
+
+
 Prequisites:
 * node (with npm)
 * grunt-cli (npm package)
