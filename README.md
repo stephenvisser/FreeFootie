@@ -2,10 +2,8 @@ Join the conversation [here](https://groups.google.com/forum/#!forum/coding-with
 
 
 Prequisites:
-* node (with npm)
+* [node](http://nodejs.org/)
 * grunt-cli (npm package)
-* ruby
-* compass (ruby gem)
 
 Starting work on this project is easy. You just need to install the prereqs for your chosen OS. After that, just follow the steps below:
 
