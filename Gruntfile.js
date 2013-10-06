@@ -66,27 +66,50 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             grunt.log.write('middleware');
+
+            var getById = function (array, id) {
+
+                var a = array.filter(function(elem) {
+                    return elem.id == id;
+                });
+
+                if (a.length > 0)
+                    return a[0];
+                return {};
+            };
+
+            var dataLoader = function (datafile) {
+                return function (content){
+                    var id = parseInt( content.parameters.id );
+                    var data = grunt.file.readJSON(datafile);
+
+                    if (id)
+                        return getById(data, id);
+                    return data;
+                }
+            };
+
             var rest = require('connect-rest');
 
             rest.context('/api');
             rest.get(
-                      [{ path: '/games', version: '>=1.0.0'}], 
-                        function(){return grunt.file.readJSON('data/games.json');}
+                      [{ path: '/games/?id', version: '>=1.0.0'}],
+                        dataLoader('data/games.json')
                     );
 
             rest.get(
-                      [{ path: '/locations', version: '>=1.0.0'}], 
-                        function(){return grunt.file.readJSON('data/locations.json');}
+                      [{ path: '/locations/?id', version: '>=1.0.0'}],
+                        dataLoader('data/locations.json')
                     );
 
             rest.get(
-                      [{ path: '/pools', version: '>=1.0.0'}], 
-                        function(){return grunt.file.readJSON('data/pools.json');}
+                      [{ path: '/pools/?id', version: '>=1.0.0'}],
+                        dataLoader('data/pools.json')
                     );
 
             rest.get(
-                      [{ path: '/teams', version: '>=1.0.0'}], 
-                        function(){return grunt.file.readJSON('data/teams.json');}
+                      [{ path: '/teams/?id', version: '>=1.0.0'}],
+                        dataLoader('data/teams.json')
                     );
 
             return [
