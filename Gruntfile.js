@@ -65,7 +65,32 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           middleware: function (connect) {
+            grunt.log.write('middleware');
+            var rest = require('connect-rest');
+
+            rest.context('/api');
+            rest.get(
+                      [{ path: '/games', version: '>=1.0.0'}], 
+                        function(){return grunt.file.readJSON('data/games.json');}
+                    );
+
+            rest.get(
+                      [{ path: '/locations', version: '>=1.0.0'}], 
+                        function(){return grunt.file.readJSON('data/locations.json');}
+                    );
+
+            rest.get(
+                      [{ path: '/pools', version: '>=1.0.0'}], 
+                        function(){return grunt.file.readJSON('data/pools.json');}
+                    );
+
+            rest.get(
+                      [{ path: '/teams', version: '>=1.0.0'}], 
+                        function(){return grunt.file.readJSON('data/teams.json');}
+                    );
+
             return [
+                rest.rester(),
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
