@@ -26,3 +26,12 @@
     height: 20px;
     border-radius: 5px;
 }
+
+.topcoat-list__expand:after{
+    content: '\232a';
+    font-size: 36px;
+    font-weight: bold;
+    vertical-align: middle;
+    position: absolute;
+    right: 0;
+}

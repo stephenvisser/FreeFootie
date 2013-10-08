@@ -1,42 +1,28 @@
-
-
 <div class="topcoat-list">
-  <h3 class="topcoat-list__header">Upcoming Matches</h3>
+  <h3 class="topcoat-list__header">Today's Matches</h3>
   <ul class="topcoat-list__container">
     <li ng-repeat="game in games" class="topcoat-list__item">
-	    <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
-	    	<div>
-	    		{{game.home}}
-	    		<span ng-show="game==currentGame">
-	    		<button class="topcoat-button">-</button>
-	    		<input style="vertical-align:middle;" type="text" class="topcoat-text-input" placeholder="Score">
-	    		<button class="topcoat-button">+</button>
-	    		<span>
-	    	</div>
-	    	vs
-	    	<div>
-	    		{{game.away}}
-	    		<span ng-show="game==currentGame">
-	    		<button class="topcoat-button">-</button>
-	    		<input style="vertical-align:middle;" type="text" class="topcoat-text-input" placeholder="Score">
-	    		<button class="topcoat-button">+</button>
-	    		<span>
-	    	</div>
-	    </div>
-	    @
-	    <a href="#/">{{game.location}}</a>
-	    in
-	    <span class="time">({{game.time | timedistance}})</span>
-	    <button class="topcoat-button" style="margin-left: 20px" ng-show="game!=currentGame" ng-click="currentGame=game">Check In</button>
-		<button class="topcoat-button" style="margin-left: 20px" ng-show="game==currentGame" ng-click="currentGame=null" style="vertical-align:middle;">Game Finished</button>
+    	<a ng-href="#/ref/game/{{game.id}}">
+		    <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
+		    	<div>
+		    		{{game.home}}
+		    		<span ng-show="game==currentGame">
+		    		<button class="topcoat-button">-</button>
+		    		<input style="vertical-align:middle;" type="text" class="topcoat-text-input" placeholder="Score">
+		    		<button class="topcoat-button">+</button>
+		    		<span>
+		    	</div>
+		    	vs
+		    	<div>
+		    		{{game.away}}
+		    	</div>
+		    </div>
+		    @
+		    <a href="#/">{{game.location}}</a>
+		    in
+		    <span class="time">({{game.time | timedistance}})</span>
+		    <span class="topcoat-list__expand"></span>
+		  </a>
     </li>
   </ul>
 </div>
-
-
-<ul>
-	<li>Receive notifications of the day's game</li>
-	<li>Receive notifications of cancelled games</li>
-	<li>Start/Stop timer for current game</li>
-	<li>Set whether the game finished in penalties or regular time</li>
-</ul>

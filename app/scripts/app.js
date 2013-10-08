@@ -3,6 +3,10 @@
 angular.module('freefootieApp', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
+    .when('/ref/game/:id', {
+        templateUrl: 'views/ref-details.html',
+        controller: 'RefCtrl'
+      })
       .when('/ref', {
         templateUrl: 'views/ref.html',
         controller: 'RefCtrl'
