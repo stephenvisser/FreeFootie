@@ -40,5 +40,47 @@ angular.module('freefootieApp')
       $scope.openDetails = function(gameId) {
         $location.path('ref/game/'+ gameId);
       }
+
+      /*
+       *  Start referee game control
+       */
+
+       function saveLocally() {
+        // To-do: save in temporary storage.
+       }
+
+       // Initilizes the scores - will attempt to read
+       // temporary storage if valid game id...
+      $scope.startScore = function () {
+        $scope.home = 0
+        $scope.away = 0
+      }
+
+      // Note: Treat home like a boolean
+      // Called by "+" button - checks what team.
+      $scope.incrementScore = function(home) {
+        if (home) {
+          $scope.home = parseInt($scope.home) + 1;
+        } else {
+          $scope.away = parseInt($scope.away) + 1;
+        }
+        saveLocally();
+      }
+
+      // Called by "-" button - check what team.
+      $scope.decrementScore = function(home) {
+        if (home) {
+          if ($scope.home > 0)
+            $scope.home = parseInt($scope.home) - 1;
+        } else {
+          if ($scope.away > 0)
+            $scope.away = parseInt($scope.away) - 1;
+        }
+        saveLocally();
+      }
+
+      /*
+       *  End referee game control
+       */
       
   });
