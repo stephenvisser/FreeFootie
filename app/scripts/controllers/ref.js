@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('freefootieApp')
-  .controller('RefCtrl', function ($scope, $resource) {
+  .controller('RefCtrl', function ($scope, $resource, $location) {
 
       $scope.currentGame = null;
 
@@ -37,6 +37,8 @@ angular.module('freefootieApp')
           });
       });
 
-      
+      $scope.openDetails = function(gameId) {
+        $location.path('ref/game/'+ gameId);
+      }
       
   });
