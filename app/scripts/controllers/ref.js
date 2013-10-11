@@ -4,6 +4,8 @@ angular.module('freefootieApp')
   .controller('RefCtrl', function ($scope, $resource, $location) {
 
       $scope.currentGame = null;
+      $scope.home = 0
+      $scope.away = 0
 
       //NOTE: the API and sample data have not concept of people and therefore
       //not concept of referees or players. These will need to be added in order
@@ -48,13 +50,6 @@ angular.module('freefootieApp')
        function saveLocally() {
         // To-do: save in temporary storage.
        }
-
-       // Initilizes the scores - will attempt to read
-       // temporary storage if valid game id...
-      $scope.startScore = function () {
-        $scope.home = 0
-        $scope.away = 0
-      }
 
       // Note: Treat home like a boolean
       // Called by "+" button - checks what team.
