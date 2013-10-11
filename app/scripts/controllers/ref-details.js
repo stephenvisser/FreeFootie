@@ -3,7 +3,6 @@
 angular.module('freefootieApp')
   .controller('RefDetailsCtrl', function ($scope) {
 
-      $scope.currentGame = null;
       $scope.home = 0
       $scope.away = 0
 
