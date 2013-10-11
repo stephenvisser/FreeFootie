@@ -33,13 +33,13 @@ angular.module('freefootieApp')
                       g.away = teamNames[g.away];
                   });
                   
-+                  function isToday(g) {
-+                      return ((g.time.getDate() + g.time.getMonth() + g.time.getYear()) 
-+                        == (today.getDate() + today.getMonth() + today.getYear()));
-+                  }
-+
-+                  var today = new Date();
-+                  $scope.games = games.filter(isToday);
+                  function isToday(g) {
+                      return ((g.time.getDate() + g.time.getMonth() + g.time.getYear()) 
+                        == (today.getDate() + today.getMonth() + today.getYear()));
+                  }
+
+                  var today = new Date();
+                  $scope.games = games.filter(isToday);
               });
           });
       });
