@@ -4,8 +4,6 @@ angular.module('freefootieApp')
   .controller('RefCtrl', function ($scope, $resource, $location) {
 
       $scope.currentGame = null;
-      $scope.home = 0
-      $scope.away = 0
 
       //NOTE: the API and sample data have not concept of people and therefore
       //not concept of referees or players. These will need to be added in order
@@ -42,40 +40,4 @@ angular.module('freefootieApp')
       $scope.openDetails = function(gameId) {
         $location.path('ref/game/'+ gameId);
       }
-
-      /*
-       *  Start referee game control
-       */
-
-       function saveLocally() {
-        // To-do: save in temporary storage.
-       }
-
-      // Note: Treat home like a boolean
-      // Called by "+" button - checks what team.
-      $scope.incrementScore = function(home) {
-        if (home) {
-          $scope.home = parseInt($scope.home) + 1;
-        } else {
-          $scope.away = parseInt($scope.away) + 1;
-        }
-        saveLocally();
-      }
-
-      // Called by "-" button - check what team.
-      $scope.decrementScore = function(home) {
-        if (home) {
-          if ($scope.home > 0)
-            $scope.home = parseInt($scope.home) - 1;
-        } else {
-          if ($scope.away > 0)
-            $scope.away = parseInt($scope.away) - 1;
-        }
-        saveLocally();
-      }
-
-      /*
-       *  End referee game control
-       */
-      
   });
