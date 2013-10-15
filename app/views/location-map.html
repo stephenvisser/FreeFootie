@@ -1,0 +1,25 @@
+<div class="topcoat-list">
+    <h3 class="topcoat-list__header">{{thisLocation.name}}</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item">
+            <span>
+                Latitude: {{thisLocation.latitude}}<br />
+                Latitude: {{thisLocation.longitude}}<br />
+            </span>
+         </li>
+        <li class="topcoat-list__item">
+            <div class="google-map"
+                 center="position.coords"
+                 zoom="zoomProperty"
+                 markers="markersProperty"
+                 latitude="thisLocation.latitude"
+                 longitude="thisLocation.longitude"
+                 mark-click="true"
+                 draggable="true"
+                 fit="false"
+                 events="eventsProperty"
+                 style="height: 300px; width: 100%">
+            </div>
+        </li>
+    </ul>
+</div>
