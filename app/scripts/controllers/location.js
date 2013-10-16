@@ -5,22 +5,13 @@ angular.module('freefootieApp')
 
         var thisLocationId = parseInt($routeParams.id); 
 
-        var teamsSrc = $resource('/api/teams/');
         var locationsSrc = $resource('/api/locations/');
-        var gamesSrc = $resource('/api/games/');
-
-        var thisLat;
-        var thisLong;
-        var thisName;
 
         google.maps.visualRefresh = true;
 
 
         locationsSrc.query(function (locations) {
             $scope.thisLocation = locations.filter(function (l) { return l.id === thisLocationId })[0];
-            thisLat = locations.filter(function (l) { return l.id === 1 })[0].latitude;
-            thisLong = locations.filter(function (l) { return l.id === 1 })[0].longitude;
-            thisName = locations.filter(function (l) { return l.id === 1 })[0].name;
         });
 
       
@@ -32,7 +23,7 @@ angular.module('freefootieApp')
                     longitude: -113.447249
                 }
             },
-            //function(thisLat) { return parseFloat(thisLat, 10) }
+
             /** the initial center of the map */
             centerProperty: {
                 latitude: 53.568643,
@@ -60,8 +51,4 @@ angular.module('freefootieApp')
                 }
             }
         });
-      
-
-      
-
 });
