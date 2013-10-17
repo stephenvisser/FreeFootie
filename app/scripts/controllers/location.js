@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('freefootieApp')
-    .controller('LocationMapCtrl', function ($scope, $resource, $routeParams) {
+    .controller('LocationMapCtrl', function ($scope, $resource, $routeParams, $log) {
 
         var thisLocationId = parseInt($routeParams.id); 
 
