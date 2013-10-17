@@ -12,38 +12,36 @@ angular.module('freefootieApp')
 
         locationsSrc.query(function (locations) {
             $scope.thisLocation = locations.filter(function (l) { return l.id === thisLocationId })[0];
+
+            $scope.markers = [$scope.thisLocation];
+            //copy values to center. this object is modified
+            //when map is dragged!
+            $scope.center = {
+                latitude: $scope.thisLocation.latitude,
+                longitude: $scope.thisLocation.longitude
+            };
         });
 
       
         angular.extend($scope, {
             
-            position: {
-                coords: {
-                    latitude: 53.568643,
-                    longitude: -113.447249
-                }
-            },
-
             /** the initial center of the map */
-            centerProperty: {
-                latitude: 53.568643,
-                longitude: -113.447249
+            center: {
+                latitude: 0,
+                longitude: 0
             },
 
             /** the initial zoom level of the map */
-            zoomProperty: 14,
+            zoom: 14,
 
             /** list of markers to put in the map */
-            markersProperty: [{
-                latitude: 53.568643,
-                longitude: -113.447249
-            }],
+            markers: [],
 
             // These 2 properties will be set when clicking on the map
             clickedLatitudeProperty: null,
             clickedLongitudeProperty: null,
 
-            eventsProperty: {
+            events: {
                 click: function (mapModel, eventName, originalEventArgs) {
                     // 'this' is the directive's scope
                     $log.log("user defined event on map directive with scope", this);
