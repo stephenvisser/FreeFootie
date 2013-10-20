@@ -3,6 +3,7 @@
         "id": 1,
         "location": 1,
         "time": "<<now>>",
+		"locationName": null,
         "home": 1,
         "away": 2,
         "state": null
@@ -11,6 +12,7 @@
         "id": 2,
         "location": 2,
         "time": "<<now>>",
+		"locationName": null,
         "home": 3,
         "away": 4,
         "state": "inprogress"
@@ -19,6 +21,7 @@
         "id": 3,
         "location": 3,
         "time": "<<now>>",
+		"locationName": null,
         "home": 5,
         "away": 6,
         "state": "complete"
