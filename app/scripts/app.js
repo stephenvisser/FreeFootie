@@ -27,16 +27,20 @@ angular.module('freefootieApp', ['ngResource', 'google-maps'])
             templateUrl: 'views/location-map.html',
             controller: 'LocationMapCtrl'
         })
+        .when('/team-details/:id', {
+            templateUrl: 'views/team-details.html',
+            controller: 'TeamDetailsCtrl'
+        })
         .otherwise({
             redirectTo: '/ref'
         });
   }).controller('SystemCtrl', function($scope){
     $scope.$on('$routeChangeSuccess', function(_, x){
-    $scope.title = {"RefCtrl": "Referee", "RefDetailsCtrl": "Score Card", "TeamCtrl": "Team", "AdminCtrl":"Administrator", "StandingsCtrl":"Free Footie Standings"}[x.$$route.controller] + ' Portal';
+    $scope.title = {"RefCtrl": "Referee", "RefDetailsCtrl": "Score Card", "TeamCtrl": "Team", "AdminCtrl":"Administrator", "StandingsCtrl":"Free Footie Standings","TeamDetailsCtrl" : "Team Details"}[x.$$route.controller] + ' Portal';
     });
   }).filter('timedistance', function(){
     return function(time) {
-    
     return '3 hours';
-}
+    }
   });
+
