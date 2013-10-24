@@ -40,7 +40,8 @@ angular.module('freefootieApp', ['ngResource', 'google-maps'])
     });
   }).filter('timedistance', function(){
     return function(time) {
+      
     return '3 hours';
-    }
+  }
   });
 
