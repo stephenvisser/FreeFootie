@@ -2,7 +2,7 @@
   "name": "freefootie",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "~1.0.8",
+    "angular": "~1.2.0-rc.3",
     "topcoat": "~0.7.0",
     "angular-google-maps": "*",
     "angular-route": "~1.2.0-rc.3"
@@ -11,8 +11,5 @@
     "angular-mocks": "~1.0.7",
     "angular-scenario": "~1.0.7",
     "angular-resource": "~1.0.7"
-  },
-  "resolutions": {
-    "angular": "1.2.0-rc.3"
   }
 }
