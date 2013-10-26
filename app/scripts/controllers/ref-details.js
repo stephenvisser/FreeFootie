@@ -2,7 +2,7 @@
 
 angular.module('freefootieApp')
   .controller('RefDetailsCtrl', function ($scope) {
-
+      $scope.game = {location: 'Ottowel', date: new Date()};
       $scope.home = 0
       $scope.away = 0
 

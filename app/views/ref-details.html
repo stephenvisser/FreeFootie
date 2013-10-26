@@ -1,3 +1,9 @@
+<div> Location: <span>{{game.location}}</span></div>
+<div>Date: {{game.date | date:'dd/MM/yyyy'}}</div>
+
+<button class="topcoat-button" ng-click="checkedin=true" ng-hide="checkedin">Check In</button>
+
+<div ng-show="checkedin" >
 Home Team
 <span>
 	<button class="topcoat-button" ng-click="decrementScore(1)">-</button>
@@ -12,3 +18,6 @@ Away Team
 	<input style="vertical-align:middle;" type="text" ng-model="away" ng-disabled="true" class="score-input">
 	<button class="topcoat-button" ng-click="incrementScore(0)">+</button>
 <span>
+
+<button class="topcoat-button" >Submit Score</button>
+</div>
