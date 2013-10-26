@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('freefootieApp', ['ngResource', 'google-maps'])
+angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
     .when('/ref/game/:id', {
