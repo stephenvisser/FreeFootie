@@ -28,7 +28,6 @@ angular.module('freefootieApp').filter('tdelta', function () {
             return 'No Data'
         } else {
             var elapsed = new Date(date).getTime() - new Date().getTime();
-            console.log(elapsed);
             return convertMap.map(function (type) { return type(elapsed); }).join(', ');
         }
     };

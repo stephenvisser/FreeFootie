@@ -4,16 +4,16 @@
     <li ng-repeat="game in games" class="topcoat-list__item" ng-click="go('ref/game/' + game.id)" >
         <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
             <div>
-                {{game.home}}
+                {{game._home.name}}
                 </span>
             </div>
             vs
             <div>
-                {{game.away}}
+                {{game._away.name}}
             </div>
         </div>
 		    @
-		    <a ng-href="#/locationMap/{{game.location}}">{{game.locationName}}</a>
+		    <a ng-href="#/locationMap/{{game.location}}">{{game._location.name}}</a>
 		    <span class="time">{{game.date | tdelta}}</span>
 		    <span class="topcoat-list__expand"></span>
 
