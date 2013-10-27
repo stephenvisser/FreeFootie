@@ -1,0 +1,10 @@
+<div class="topcoat-list">
+	<div ng-repeat="(div, teams) in divs">
+  <h3 class="topcoat-list__header">{{div}}</h3>
+  <ul class="topcoat-list__container">
+    <li ng-repeat="team in teams | orderBy:'wins':true" class="topcoat-list__item">
+     {{team.name}} ({{team.wins}}/{{team.losses}}/{{team.ties}})
+    </li>
+  </ul>
+</div>
+</div>

@@ -35,6 +35,10 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
             templateUrl: 'views/team-details.html',
             controller: 'TeamDetailsCtrl'
         })
+        .when('/team-admin', {
+            templateUrl: 'views/team-admin.html',
+            controller: 'TeamAdminCtrl'
+        })
         .otherwise({
             redirectTo: '/ref'
         });
