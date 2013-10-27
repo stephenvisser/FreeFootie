@@ -52,11 +52,6 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
       "StandingsCtrl":"Free Footie Standings",
       "TeamDetailsCtrl" : "Team Details"}[x.$$route.controller] + ' Portal';
     });
-  }).filter('timedistance', function(){
-    return function(time) {
-        
-      return '3 hours';
-    }
   }).run(function($rootScope, $location){
     $rootScope.go = function(path) {
         $location.path(path);

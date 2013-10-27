@@ -65,12 +65,19 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           middleware: function (connect) {
-            grunt.log.write('middleware');
 
             var transform = function(data) {
               for (var property in data) {
-                if (data[property] === "<<now>>") {
-                  data[property] = new Date().toISOString();
+                if (data[property] && data[property].match) {
+                  var r = data[property].match(/<<now(?:~(\d)h)?>>/);
+                  if (r) {
+                    var time = new Date(),
+                        diff = r[1] | 0,
+                        hourOffset = Math.floor((Math.random() - 0.5) * 2 * diff),
+                        newTime = time.getTime() + hourOffset * 3600000;
+                    console.log ("SSSSSSS", new Date(newTime));
+                    data[property] = new Date(newTime).toISOString();
+                  }
                 }
               }
               return data;
@@ -91,10 +98,21 @@ module.exports = function (grunt) {
                 return function (content){
                     var id = parseInt( content.parameters.id );
                     var data = grunt.file.readJSON(datafile);
-
                     if (id)
                         return transform(getById(data, id));
-                    return data.map(transform);
+                    return data.map(transform).filter(function(item){
+                      return Object.keys(content.parameters).every(function(prop){
+                        if (prop === 'id') return true;
+                        if (prop === 'date') {
+                          var pDate = new Date(content.parameters[prop]),
+                              oDate = new Date(item[prop]),
+                              year = pDate.getYear(),
+                              month = pDate.getMonth(),
+                              date = pDate.getDate();
+                          return oDate.getYear() === pDate.getYear() && oDate.getMonth() === pDate.getMonth() && oDate.getDate() === pDate.getDate();
+                        } 
+                      });
+                    });
                 }
             };
 
@@ -126,6 +144,7 @@ module.exports = function (grunt) {
                     );
 
             return [
+              connect.query(),
                 rest.rester(),
               lrSnippet,
               mountFolder(connect, '.tmp'),

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "location": 1,
-        "time": "<<now>>",
+        "date": "<<now~5h>>",
 		"locationName": null,
         "home": 1,
         "away": 2,
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "location": 2,
-        "time": "<<now>>",
+        "date": "<<now~5h>>",
 		"locationName": null,
         "home": 3,
         "away": 4,
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "location": 3,
-        "time": "<<now>>",
+        "date": "<<now~5h>>",
 		"locationName": null,
         "home": 5,
         "away": 6,

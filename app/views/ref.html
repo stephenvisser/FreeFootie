@@ -5,10 +5,6 @@
         <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
             <div>
                 {{game.home}}
-                <span ng-show="game==currentGame">
-                    <button class="topcoat-button">-</button>
-                    <input style="vertical-align:middle;" type="text" class="topcoat-text-input" placeholder="Score">
-                    <button class="topcoat-button">+</button>
                 </span>
             </div>
             vs
@@ -18,8 +14,7 @@
         </div>
 		    @
 		    <a ng-href="#/locationMap/{{game.location}}">{{game.locationName}}</a>
-		    in
-		    <span class="time">({{game.time | timedistance}})</span>
+		    <span class="time">{{game.date | tdelta}}</span>
 		    <span class="topcoat-list__expand"></span>
 
     </li>
