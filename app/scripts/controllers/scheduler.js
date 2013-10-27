@@ -1,30 +1,45 @@
 'use strict';
 
 angular.module('freefootieApp')
-  .controller('SchedulerCtrl', function ($scope) {
+  .controller('SchedulerCtrl', function ($scope, $resource) {
 
-        $scope.games = [];
+        var Team = $resource('/api/teams/:id');
+
+        $scope.startDate = null;
 
         $scope.createSchedule = function() {
 
-            var res = $scope.rrSchedule($scope.formTeamsNr);
+            Team.query(function(teams){
+                $scope.weeks = rrSchedule(teams.length).map(function(games, index){
+                    var round = new Date(Date.parse($scope.startDate));
+                    round.setDate(round.getDate() + 7 * index);
+                    return {
+                        games: games.map(function(game){
+                            console.log(game);
+                            return {
+                                home: teams[game.home - 1],
+                                away: teams[game.away - 1],
+                                date: round
+                            };
+                        }),
+                        date: round
+                    };
+                });
+            });
 
-            for(var i = 0; i < res.length; i++)
-            {
-                $scope.games.push({round: res[i].round , homeTeam:  res[i].homeTeam,  awayTeam: res[i].awayTeam });
-            }
+            var round = 0;
 
         };
 
 
-        $scope.rrSchedule = function(teams) {
+        var rrSchedule = function(teams) {
             var schedule = []
                 , arraySize = +teams + (teams % 2)
                 , a = new Array(arraySize - 1)
                 , arrayLength = a.length
                 , pos
                 , i
-                , round
+                , result = Array.apply(null, {length: arrayLength})
                 , x
                 , pos2;
 
@@ -40,26 +55,23 @@ angular.module('freefootieApp')
                 a[arraySize - 1] = "_";
             }
 
-            for (round = 1; round < arrayLength + 1; round++) {
-
-                //First game = first team x last not "played" (can be team "_")
-                schedule.push({
-                        round: round,
-                        homeTeam: a[0],
-                        awayTeam: a[arrayLength - (round - 1)]}
-                );
-
-                //other games
+            return result.map(function(_, round){
+                //initial team
+                var array = [{
+                        home: a[0],
+                        away: a[arrayLength - round]
+                    }];
+                                //other games
                 for (i = 2; i < (arraySize / 2) + 1; i++) {
 
-                    if (i + (round - 2) >= arrayLength) {
-                        pos = (arrayLength - (i + (round - 2))) * -1;
+                    if (i + (round - 1) >= arrayLength) {
+                        pos = (arrayLength - (i + (round - 1))) * -1;
                     }
                     else {
-                        pos = i + (round - 2);
+                        pos = i + (round - 1);
                     }
 
-                    pos2 = (pos - (round - 2)) - round;
+                    pos2 = (pos - (round - 1)) - round - 1;
 
 
                     if (pos2 > 0) {
@@ -70,16 +82,13 @@ angular.module('freefootieApp')
                         pos2 += arrayLength;
                     }
 
-                    schedule.push({
-                        round: round,
-                        homeTeam: a[(arrayLength + pos2)],
-                        awayTeam: a[(arrayLength - pos)]
-                    })
+                    array.push({
+                        home: a[(arrayLength + pos2)],
+                        away: a[(arrayLength - pos)]
+                    });
                 }
-
-            }
-
-            return schedule;
+                return array;
+            });
         };
 
   });

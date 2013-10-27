@@ -117,3 +117,19 @@
     right: 0;
     position: absolute;
 }
+
+input[type="date"] {
+    height: 38px;
+    font-size: 18px;
+    font-family: 'Source Sans', helvetica, arial, sans-serif;
+    border-radius: 5px;
+    background-color: #e5e9e8;
+    box-shadow: none;
+    border: 1px solid #a5a8a8;
+    padding: 4px;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
