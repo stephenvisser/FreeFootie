@@ -8,7 +8,7 @@
 }
 
 .notstarted {
-    background-color: white;
+    background-color: #EB5D73;
 }
 
 .inprogress {
@@ -20,11 +20,39 @@
 }
 
 .progress {
-    margin-left: 40px;
     display: inline-block;
     width: 20px;
     height: 20px;
     border-radius: 5px;
+    padding: 9px;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+}
+
+.dashboard {
+    padding-right: 0;
+}
+
+.vs {
+    display: inline-block;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 28px;
+    background: #444;
+    color: #bcbfbf;
+}
+
+.team-info {
+    float: right;
+    margin-right: 20px;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 40px;
 }
 
 .score-input {
@@ -46,12 +74,5 @@
     font-size: 36px;
     font-weight: bold;
     vertical-align: middle;
-    position: absolute;
-    right: 0;
-}
-
-.progress {
-    padding: 2px;
-    font-weight: bold;
-    width: auto;
+    float: right;
 }
