@@ -17,18 +17,18 @@
 	<div class="row">
 		{{game._home.name}}
 		<span class="pull-right">
-			<button class="topcoat-button" ng-click="score.home = abs(score.home - 1)">-</button>
+			<button class="topcoat-button" ng-click="score.home = abs(score.home - 1)" ng-hide="edit.submitted">-</button>
 			<input style="vertical-align:middle;" type="text" ng-model="score.home" ng-disabled="true" class="score-input">
-			<button class="topcoat-button" ng-click="score.home = score.home + 1">+</button>
+			<button class="topcoat-button" ng-click="score.home = score.home + 1" ng-hide="edit.submitted">+</button>
 		</span>
 	</div>
 	<div class="row">
 		{{game._away.name}}
 		<span class="pull-right">
-			<button class="topcoat-button" ng-click="score.away = abs(score.away - 1)">-</button>
+			<button class="topcoat-button" ng-click="score.away = abs(score.away - 1)" ng-hide="edit.submitted">-</button>
 			<input style="vertical-align:middle;" type="text" ng-model="score.away" ng-disabled="true" class="score-input">
-			<button class="topcoat-button" ng-click="score.away = score.away + 1">+</button>
+			<button class="topcoat-button" ng-click="score.away = score.away + 1" ng-hide="edit.submitted">+</button>
 		</span>
 	</div>
-	<button class="topcoat-button--cta submit" >Submit Score</button>
+	<button ng-class="{false: 'topcoat-button--cta', true: 'topcoat-button'}[edit.submitted]" class="submit" ng-click="edit.submitted=true">{{{false: 'Submit Score', true: 'Thank You'}[edit.submitted]}}</button>
 </div>

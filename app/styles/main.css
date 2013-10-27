@@ -122,6 +122,10 @@
     display: block;
 }
 
+.submit.topcoat-button {
+    opacity: 0.4;
+}
+
 .pull-right {
     display: inline-block;
     right: 0;

@@ -15,6 +15,7 @@ angular.module('freefootieApp')
     "longitude": -113.446072};
       $scope.score = {home: 0,
       away: 0, checkedin: false};
+      $scope.edit = {submitted: false};
 
        function saveLocally() {
         // To-do: save in temporary storage.
