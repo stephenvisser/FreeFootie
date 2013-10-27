@@ -44,7 +44,7 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
             controller: 'SchedulerCtrl'
         })
         .otherwise({
-            redirectTo: '/ref'
+            redirectTo: '/admin'
         });
   }).controller('SystemCtrl', function($scope){
     $scope.$on('$routeChangeSuccess', function(_, x){
