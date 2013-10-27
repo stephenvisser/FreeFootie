@@ -13,3 +13,17 @@ Starting work on this project is easy. You just need to install the prereqs for 
     npm install
     bower install
     grunt server
+
+
+###Pages
+
+#### Admin: 
+
+- /admin (Dashboard, management portal)
+- /admin/game/:id (Game details)
+- /scheduler (Create games for league play)
+- /admin/team (Administer the teams)
+
+#### Ref:
+
+- /ref (Dashboard)

@@ -7,9 +7,16 @@
        <li ng-repeat="player in players" class="topcoat-list__item">
            {{player.number}}&nbsp - {{player.name}}
 	    </li>
-      <li></li>
+      <li ng-show="editing" class="edit-row">
+        <input type="text" class="topcoat-text-input" placeholder="Number" ng-model="newPlayer.number" style="width: 100px"/>
+        <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="newPlayer.name"/>
+        <span style="flex-grow:1;"></span>
+        <button class="topcoat-button--cta">Save</button>
+        <button class="topcoat-button" ng-click="editing=false">Cancel</button>
+      </li>
   </ul>
 </div>
+<div class="vs" style="margin-top:10px; font-weight: bold" ng-click="editing=true">+</div>
 
 
 

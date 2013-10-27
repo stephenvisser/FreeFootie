@@ -31,11 +31,11 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
             templateUrl: 'views/location-map.html',
             controller: 'LocationMapCtrl'
         })
-        .when('/team-details/:id', {
+        .when('/admin/team/:id', {
             templateUrl: 'views/team-details.html',
             controller: 'TeamDetailsCtrl'
         })
-        .when('/team-admin', {
+        .when('/admin/team', {
             templateUrl: 'views/team-admin.html',
             controller: 'TeamAdminCtrl'
         })
