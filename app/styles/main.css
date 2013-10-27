@@ -26,16 +26,18 @@
     border-radius: 5px;
     padding: 9px;
     font-weight: bold;
-    width: 100px;
     text-align: center;
+    align-self: center;
 }
 
 .dashboard {
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-right: 0;
+    display: flex;
 }
 
 .vs {
-    display: inline-block;
     border-radius: 20px;
     width: 30px;
     height: 30px;
@@ -45,14 +47,16 @@
     line-height: 28px;
     background: #444;
     color: #bcbfbf;
+    margin: auto;
 }
 
 .team-info {
-    float: right;
     margin-right: 20px;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 40px;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .score-input {
@@ -69,12 +73,10 @@
     font-size:30px;
 }
 
-.topcoat-list__expand:after{
-    content: '\232a';
+.topcoat-list__expand{
     font-size: 36px;
     font-weight: bold;
-    vertical-align: middle;
-    float: right;
+    align-self: center;
 }
 .topcoat-navigation-bar {
     display: block;
