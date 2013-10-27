@@ -1,3 +1,20 @@
 <h1>
 BUILD SCHEDULE
 </h1>
+
+<div ng-controller="SchedulerCtrl">
+
+    <form>
+        <span># of teams</span>
+        <input type="text" ng-model="formTeamsNr">
+        <button ng-click="createSchedule()">Create Schedule</button>
+    </form>
+
+
+        <ul style="list-style:none;">
+            <li ng-repeat="game in games">
+                    <span>Round: {{game.round}}:  {{game.homeTeam}} vs {{game.awayTeam}}</span>
+            </li>
+        </ul>
+
+</div>
