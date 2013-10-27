@@ -1,14 +1,10 @@
 
 
 <div class="topcoat-list">
-	<select>
-		<option>Regular Season</option>
-		<option>Playoff</option>
-		<option>Youngsters League</option>
-	</select>
   <h3 class="topcoat-list__header">Today's Games</h3>
   <ul class="topcoat-list__container">
     <li ng-repeat="game in games" class="topcoat-list__item">
+    	<a href="/#/admindetails/{{game.id}}">
 	    <div style="display:inline-block;text-align:center;vertical-align:middle;margin-right: 20px;">
 	    	<div>
 	    		{{game.home}}
@@ -18,12 +14,9 @@
 	    		{{game.away}}
 	    	</div>
 	    </div>
-	    @
-	    <span class="location">{{game.location}}</span>
-	    in
-	    <span class="time">({{game.time | timedistance}})</span>
-	    <span class="progress" ng-class="game.state || 'notstarted'"></span>
-	    <button class="topcoat-button" style="margin-left: 20px">Edit Game Details</button>
+	    <span class="progress" ng-class="game.state || 'notstarted'">{{{'inprogress': 'In Progress', 'complete': 'Complete', 'null': 'Not Started'}[game.state]}}</span>
+	    <span class="topcoat-list__expand"></span>
+	</a>
     </li>
   </ul>
 </div>

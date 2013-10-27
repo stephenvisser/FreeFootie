@@ -19,6 +19,10 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
             templateUrl: 'views/admin.html',
             controller: 'AdminCtrl'
         })
+        .when('/admindetails/:id', {
+            templateUrl: 'views/admin-game-details.html',
+            controller: 'AdminDetailsCtl'
+        })
         .when('/standings', {
             templateUrl: 'views/standings.html',
             controller: 'StandingsCtrl'
@@ -36,7 +40,13 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
         });
   }).controller('SystemCtrl', function($scope){
     $scope.$on('$routeChangeSuccess', function(_, x){
-    $scope.title = {"RefCtrl": "Referee", "RefDetailsCtrl": "Score Card", "TeamCtrl": "Team", "AdminCtrl":"Administrator", "StandingsCtrl":"Free Footie Standings","TeamDetailsCtrl" : "Team Details"}[x.$$route.controller] + ' Portal';
+    $scope.title = {
+      "RefCtrl": "Referee", 
+      "RefDetailsCtrl": "Score Card", 
+      "TeamCtrl": "Team", 
+      "AdminCtrl":"Administrator", 
+      "StandingsCtrl":"Free Footie Standings",
+      "TeamDetailsCtrl" : "Team Details"}[x.$$route.controller] + ' Portal';
     });
   }).filter('timedistance', function(){
     return function(time) {

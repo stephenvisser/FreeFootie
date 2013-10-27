@@ -16,7 +16,7 @@
 }
 
 .complete {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 .progress {
@@ -48,4 +48,10 @@
     vertical-align: middle;
     position: absolute;
     right: 0;
+}
+
+.progress {
+    padding: 2px;
+    font-weight: bold;
+    width: auto;
 }

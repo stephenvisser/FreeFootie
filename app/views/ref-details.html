@@ -1,23 +1,23 @@
-<div> Location: <a href="/#/locationMap/1">{{game.location}}</a></div>
+<div> Location: <a href="/#/locationMap/1">{{location.name}}</a></div>
 <div>Date: {{game.date | date:'dd/MM/yyyy'}}</div>
 
 <button class="topcoat-button" ng-click="checkedin=true" ng-hide="checkedin">Check In</button>
 
 <div ng-show="checkedin" >
-Home Team
+{{home.name}}
 <span>
-	<button class="topcoat-button" ng-click="decrementScore(1)">-</button>
-	<input style="vertical-align:middle;" type="text" ng-model="home" ng-disabled="true" class="score-input">
-	<button class="topcoat-button" ng-click="incrementScore(1)">+</button>
-<span>
+	<button class="topcoat-button" ng-click="score.home = abs(score.home - 1)">-</button>
+	<input style="vertical-align:middle;" type="text" ng-model="score.home" ng-disabled="true" class="score-input">
+	<button class="topcoat-button" ng-click="score.home = score.home + 1">+</button>
+</span>
 <br>
 <br>
-Away Team
+{{away.name}}
 <span>
-	<button class="topcoat-button" ng-click="decrementScore(0)">-</button>
-	<input style="vertical-align:middle;" type="text" ng-model="away" ng-disabled="true" class="score-input">
-	<button class="topcoat-button" ng-click="incrementScore(0)">+</button>
-<span>
-
+	<button class="topcoat-button" ng-click="score.away = abs(score.away - 1)">-</button>
+	<input style="vertical-align:middle;" type="text" ng-model="score.away" ng-disabled="true" class="score-input">
+	<button class="topcoat-button" ng-click="score.away = score.away + 1">+</button>
+</span>
+<br>
 <button class="topcoat-button" >Submit Score</button>
 </div>
