@@ -1,25 +1,30 @@
 <navigation title="currentTeam.name">
-  <button class="topcoat-button--cta">Edit</button>
+  <button ng-class="{true: 'topcoat-button', false: 'topcoat-button--cta'}[edit.editing]" ng-click="edit.editing = !edit.editing">{{{true: 'Cancel', false: 'Edit'}[edit.editing]}}</button>
 </navigation>
 <div class="topcoat-list">
   <h3 class="topcoat-list__header"> ({{pool.name}}: {{currentTeam.wins}}/{{currentTeam.losses}}/{{currentTeam.ties}})</h3>
   <ul class="topcoat-list__container">
-    <li class="topcoat-list__item">
+    <li class="topcoat-list__item" ng-hide="edit.editing">
         <b>Coach:</b> {{currentTeam.coach}} (<a href="">{{currentTeam.phone}}</a>)
 	    </li>
+      <li class="topcoat-list__item" ng-show="edit.editing" style="line-height: 50px">
+        Coach:
+        <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="newPlayer.number" style="width: 100px"/>
+        <input type="text" class="topcoat-text-input" placeholder="Phone Number" ng-model="newPlayer.name"/>
+      </li>
        <li ng-repeat="player in players" class="topcoat-list__item">
            {{player.number}}&nbsp - {{player.name}}
 	    </li>
-      <li ng-show="editing" class="edit-row">
+      <li ng-show="edit.editing" class="edit-row">
         <input type="text" class="topcoat-text-input" placeholder="Number" ng-model="newPlayer.number" style="width: 100px"/>
         <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="newPlayer.name"/>
         <span style="flex-grow:1;"></span>
         <button class="topcoat-button--cta">Save</button>
-        <button class="topcoat-button" ng-click="editing=false">Cancel</button>
+        <button class="topcoat-button" ng-click="edit.editing=false">Cancel</button>
       </li>
   </ul>
 </div>
-<div class="vs" style="margin-top:10px; font-weight: bold" ng-click="editing=true">+</div>
+<div class="vs" style="margin-top:10px; font-weight: bold" ng-click="edit.editing=true">+</div>
 
 
 
