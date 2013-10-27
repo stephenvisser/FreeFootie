@@ -1,6 +1,27 @@
-<div> Location: <a href="/#/locationMap/1">{{location.name}}</a></div>
-<div>Date: {{game.date | date:'dd/MM/yyyy'}}</div>
+<div class="topcoat-list">
+    <h3 class="topcoat-list__header">Game Details</h3>
+    <ul class="topcoat-list__container">
 
-<div>Home: <a href="/#/team-details/{{home.id}}">{{home.name}}</a></div>
-<div>Away: <a href="/#/team-details/{{away.id}}">{{away.name}}</a></div>
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title ng-binding">{{location.name}}</h1>
+            </div>
+
+            <div class="team-info">
+
+                <div>
+                    <b>Home:</b>
+                    <span><a href="/#/team-details/{{home.id}}">{{home.name}}</a><br/></span>
+                    <b>Coach:</b> {{home.coach}} ({{home.phone}})
+                </div>
+                <div class="vs">vs</div>
+                <div>
+                    <b>Away:</b>
+                    <span><a href="/#/team-details/{{away.id}}">{{away.name}}</a><br/></span>
+                    <b>Coach:</b> {{away.coach}} ({{away.phone}})
+                </div>
+            </div>
+    </ul>
+</div>
+
+
 

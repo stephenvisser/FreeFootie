@@ -2,12 +2,13 @@
   <h3 class="topcoat-list__header">{{currentTeam.name}} ({{pool.name}}: {{currentTeam.wins}}/{{currentTeam.losses}}/{{currentTeam.ties}})</h3>
   <ul class="topcoat-list__container">
     <li class="topcoat-list__item">
-        Coach: {{currentTeam.coach}} (<a href="">{{currentTeam.phone}}</a>)
+        <b>Coach:</b> {{currentTeam.coach}} (<a href="">{{currentTeam.phone}}</a>)
 	    </li>
        <li ng-repeat="player in players" class="topcoat-list__item">
-        {{player.name}} ({{player.number}})
+           {{player.number}}&nbsp - {{player.name}}
 	    </li>
       <li></li>
+  </ul>
 </div>
 
 
