@@ -3,11 +3,14 @@
 angular.module('freefootieApp')
 .controller('TeamDetailsCtrl', function ($scope, $resource,$routeParams) {
 
-    var currentTeamId = parseInt($routeParams.id);
-    var teamsSrc = $resource('/api/teams/');
+    var Team = $resource('/api/teams/:id');
+    var Pool = $resource('/api/pools/:id');
+    var Player = $resource('/api/players/:id');
 
-    teamsSrc.query(function (teams) {
-        $scope.currentTeam = teams.filter(function (t) { return t.id === currentTeamId })[0];
+    $scope.currentTeam = Team.get({id: $routeParams.id}, function(team) {
+    	$scope.pool = Pool.get({id: team.pool});
+    	$scope.players = team.players.map(function(player){
+			return Player.get({id: player});
+		});
     });
-
 });

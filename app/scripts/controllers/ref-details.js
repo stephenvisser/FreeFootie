@@ -20,7 +20,6 @@ angular.module('freefootieApp')
         // To-do: save in temporary storage.
        }
 
-
        $scope.abs = function (num) {
         return num < 0 ? 0 : num;
        }

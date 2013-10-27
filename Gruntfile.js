@@ -120,6 +120,10 @@ module.exports = function (grunt) {
                       [{ path: '/teams/?id', version: '>=1.0.0'}],
                         dataLoader('data/teams.json')
                     );
+            rest.get(
+                      [{ path: '/players/?id', version: '>=1.0.0'}],
+                        dataLoader('data/players.json')
+                    );
 
             return [
                 rest.rester(),
