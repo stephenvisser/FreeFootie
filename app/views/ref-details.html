@@ -1,23 +1,34 @@
-<div> Location: <a href="/#/locationMap/1">{{location.name}}</a></div>
-<div>Date: {{game.date | date:'dd/MM/yyyy'}}</div>
-
-<button class="topcoat-button" ng-click="checkedin=true" ng-hide="checkedin">Check In</button>
-
-<div ng-show="checkedin" >
-{{home.name}}
-<span>
-	<button class="topcoat-button" ng-click="score.home = abs(score.home - 1)">-</button>
-	<input style="vertical-align:middle;" type="text" ng-model="score.home" ng-disabled="true" class="score-input">
-	<button class="topcoat-button" ng-click="score.home = score.home + 1">+</button>
-</span>
-<br>
-<br>
-{{away.name}}
-<span>
-	<button class="topcoat-button" ng-click="score.away = abs(score.away - 1)">-</button>
-	<input style="vertical-align:middle;" type="text" ng-model="score.away" ng-disabled="true" class="score-input">
-	<button class="topcoat-button" ng-click="score.away = score.away + 1">+</button>
-</span>
-<br>
-<button class="topcoat-button" >Submit Score</button>
+<navigation title="game._location.name">
+<button class="topcoat-button--cta" ng-click="score.checkedin=true" ng-hide="score.checkedin">Check In</button>
+</navigation>
+<div ng-hide="score.checkedin">
+<div class="google-map"
+	center="location"
+	zoom="14"
+	markers="[location]"
+	mark-click="false"
+	draggable="true"
+	fit="false"
+	events="events"
+	style="height: 300px; width: 100%">
+</div>
+</div>
+<div ng-show="score.checkedin" class="score-pane">
+	<div class="row">
+		{{game._home.name}}
+		<span class="pull-right">
+			<button class="topcoat-button" ng-click="score.home = abs(score.home - 1)">-</button>
+			<input style="vertical-align:middle;" type="text" ng-model="score.home" ng-disabled="true" class="score-input">
+			<button class="topcoat-button" ng-click="score.home = score.home + 1">+</button>
+		</span>
+	</div>
+	<div class="row">
+		{{game._away.name}}
+		<span class="pull-right">
+			<button class="topcoat-button" ng-click="score.away = abs(score.away - 1)">-</button>
+			<input style="vertical-align:middle;" type="text" ng-model="score.away" ng-disabled="true" class="score-input">
+			<button class="topcoat-button" ng-click="score.away = score.away + 1">+</button>
+		</span>
+	</div>
+	<button class="topcoat-button submit" >Submit Score</button>
 </div>
