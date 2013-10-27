@@ -76,3 +76,43 @@
     vertical-align: middle;
     float: right;
 }
+.topcoat-navigation-bar {
+    display: block;
+}
+
+.checkin-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 12;
+}
+
+.score-pane {
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+.score-pane .row {
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.score-pane .row button {
+    vertical-align: middle;
+}
+
+.score-pane .submit {
+    margin: auto;
+    margin-top: 20px;
+    width: 160px;
+    display: block;
+}
+
+.pull-right {
+    display: inline-block;
+    right: 0;
+    position: absolute;
+}

@@ -8,6 +8,7 @@
         "pool": 1,
 		"coach": "Ronald",
 		"phone": "999-999-1111",
+        "school": 3,
         "players": [1,2,3,4,9]
     },
     {
@@ -19,6 +20,7 @@
         "pool": 1,
 		"coach": "Matilda",
 		"phone": "999-999-2222",
+        "school": 3,
         "players": [1,2,3,4,9]
     },
     {
@@ -30,6 +32,7 @@
         "pool": 1,
 		"coach": "Dave",
 		"phone": "999-999-3333",
+        "school": 3,
         "players": [1,2,3,4,9]
     },
     {
@@ -41,6 +44,7 @@
         "pool": 2,
 		"coach": "Jack",
 		"phone": "999-999-4444",
+        "school": 3,
         "players": [1,2,3,4,9]
     },
     {
@@ -52,6 +56,7 @@
         "pool": 2,
 		"coach": "Zebidiah",
 		"phone": "999-999-5555",
+        "school": 3,
         "players": [1,2,3,4,9]
     },
     {
@@ -63,6 +68,7 @@
         "pool": 2,
 		"coach": "Gertrude",
 		"phone": "999-999-6666",
+        "school": 3,
         "players": [1,2,3,4,9]
     }
 ]
