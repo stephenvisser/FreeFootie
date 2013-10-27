@@ -54,8 +54,12 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
     });
   }).filter('timedistance', function(){
     return function(time) {
-      
-    return '3 hours';
-  }
+        
+      return '3 hours';
+    }
+  }).run(function($rootScope, $location){
+    $rootScope.go = function(path) {
+        $location.path(path);
+      };
   });
 

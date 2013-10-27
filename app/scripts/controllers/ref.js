@@ -44,8 +44,4 @@ angular.module('freefootieApp')
               });
           });
       });
-
-      $scope.openDetails = function(gameId) {
-        $location.path('ref/game/'+ gameId);
-      }
   });
