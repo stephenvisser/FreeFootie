@@ -27,10 +27,6 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
             templateUrl: 'views/standings.html',
             controller: 'StandingsCtrl'
         })
-        .when('/locationMap/:id', {
-            templateUrl: 'views/location-map.html',
-            controller: 'LocationMapCtrl'
-        })
         .when('/admin/team/:id', {
             templateUrl: 'views/team-details.html',
             controller: 'TeamDetailsCtrl'
@@ -46,16 +42,6 @@ angular.module('freefootieApp', ['ngResource', 'google-maps', 'ngRoute'])
         .otherwise({
             redirectTo: '/admin'
         });
-  }).controller('SystemCtrl', function($scope){
-    $scope.$on('$routeChangeSuccess', function(_, x){
-    $scope.title = {
-      "RefCtrl": "Referee", 
-      "RefDetailsCtrl": "Score Card", 
-      "TeamCtrl": "Team", 
-      "AdminCtrl":"Administrator", 
-      "StandingsCtrl":"Free Footie Standings",
-      "TeamDetailsCtrl" : "Team Details"}[x.$$route.controller] + ' Portal';
-    });
   }).run(function($rootScope, $location){
     $rootScope.go = function(path) {
         $location.path(path);
