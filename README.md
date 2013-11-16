@@ -1,8 +1,7 @@
 Join the conversation [here](https://groups.google.com/forum/#!forum/coding-with-a-conscience)
 
-
 Prequisites:
-* [node](http://nodejs.org/)
+* [nodejs](http://nodejs.org/)
 * grunt-cli (npm package)
 * bower (npm package)
 
@@ -14,6 +13,12 @@ Starting work on this project is easy. You just need to install the prereqs for 
     bower install
     grunt server
 
+###Structure
+This nodejs application has its components split between client and server. Files found in the client directory
+have to do with what is actually loaded and rendered by the browser. This means html, javascript (angular components), etc.
+The server directory contains all the backend systems such as the REST api handling, database interactions, etc.
+
+The http server is started and configured in app.js. Setting things like port numbers can be done in settings.json.
 
 ###Pages
 
