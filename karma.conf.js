@@ -8,11 +8,11 @@ module.exports = function(config){
       },
       frameworks : ["jasmine"],
       files : [
-        'client/bower_components/angular/angular.js',
-        'client/bower_components/angular-resource/angular-resource.js',
-        'client/bower_components/angular-route/angular-route.js',
-        'client/bower_components/angular-mocks/angular-mocks.js',
-        'client/bower_components/angular-google-maps/src/angular-google-maps.js',
+        'client/vendor/angular/angular.js',
+        'client/vendor/angular/angular-resource.js',
+        'client/vendor/angular/angular-route.js',
+        'client/vendor/angular/angular-mocks.js',
+        'client/vendor/angular/angular-scenario.js',
         'client/app/app.js',
         'client/app/**/*.js',
         'test/**/*.js'
