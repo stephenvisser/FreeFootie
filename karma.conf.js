@@ -8,7 +8,11 @@ module.exports = function(config){
       },
       frameworks : ["jasmine"],
       files : [
-        'client/vendor/**/*.js',
+        'client/vendor/angular/angular.js',
+        'client/vendor/angular/angular-resource.js',
+        'client/vendor/angular/angular-route.js',
+        'client/vendor/angular/angular-mocks.js',
+        'client/vendor/angular/angular-scenario.js',
         'client/app/app.js',
         'client/app/**/*.js',
         'test/**/*.js'
