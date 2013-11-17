@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ConCode/FreeFootie.png?branch=master)](https://travis-ci.org/ConCode/FreeFootie)
+
 Join the conversation [here](https://groups.google.com/forum/#!forum/coding-with-a-conscience)
 
 Prequisites:
