@@ -6,8 +6,25 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , fs = require('fs')
   , settings = require('./settings')
-  , routeConfig = require('./server/route-config');
+  , routeConfig = require('./server/route-config')
+  , url = require('url')
+  , autoprefixer = require('autoprefixer');
+
+
+function prefixBridge(req, res, next) {
+  var pathname = path.join('client', url.parse(req.url).pathname);
+  if (pathname.match(/\.css/)) {
+    fs.readFile(pathname, 'utf8', function(err, str){
+      var compiled = autoprefixer.compile(str);
+      fs.writeFile(pathname, compiled, 'utf8', next);
+    });
+  } else {
+    next();
+  }
+}
+
 
 var app = express();
 
@@ -34,6 +51,7 @@ app.configure('development', function() {
 
 app.use(app.router);
 app.use(require('less-middleware')({ src: __dirname + '/client' }));
+app.use(prefixBridge);
 app.use(express.static(path.join(__dirname, 'client')));
 
 // development only
