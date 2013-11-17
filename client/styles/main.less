@@ -32,13 +32,6 @@
     align-self: center;
 }
 
-.dashboard {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 0;
-    display: flex;
-}
-
 .vs {
     border-radius: 20px;
     width: 30px;
@@ -83,12 +76,6 @@
     height: 50px;
     width: 38px;
     font-size:30px;
-}
-
-.topcoat-list__expand{
-    font-size: 36px;
-    font-weight: bold;
-    align-self: center;
 }
 
 .checkin-btn {
@@ -146,6 +133,29 @@
     margin-left: 10px;
 }
 
+.list {
+    .topcoat-list;
+    ul {
+        .topcoat-list__container;
+
+        li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 0;
+            display: flex;
+            .topcoat-list__item;
+
+            .caret {
+                font-size: 36px;
+                font-weight: bold;
+                align-self: center;
+            }
+
+        }
+    }
+
+}
+
 input[type="date"] {
     height: 38px;
     font-size: 18px;
@@ -161,8 +171,6 @@ input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
 }
-
-
 
 map {
     display: block;
