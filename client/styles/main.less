@@ -1,0 +1,193 @@
+@import (less) "../bower_components/topcoat/css/topcoat-mobile-light.css";
+
+.location {
+    font-weight: bold;
+}
+
+.time {
+    font-style: italic;
+    color: black;
+}
+
+.notstarted {
+    background-color: #EB5D73;
+}
+
+.inprogress {
+    background-color: yellow;
+}
+
+.complete {
+    background-color: lightgreen;
+}
+
+.progress {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 9px;
+    font-weight: bold;
+    text-align: center;
+    align-self: center;
+}
+
+.dashboard {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0;
+    display: flex;
+}
+
+.vs {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 28px;
+    background: #444;
+    color: #bcbfbf;
+    margin: auto;
+}
+
+.plus {
+    font-size: 100px;
+    background: #777;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.team-info {
+    margin-right: 20px;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.score-input {
+    padding: 0 1.25rem;
+    letter-spacing: 1px;
+    text-shadow: 0 1px #fff;
+    background-color: #e5e9e8;
+    box-shadow: inset 0 1px #fff;
+    border: 1px solid #a5a8a8;
+    border-radius: 6px;
+    text-align: center;
+    height: 50px;
+    width: 38px;
+    font-size:30px;
+}
+
+.topcoat-list__expand{
+    font-size: 36px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.checkin-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 12;
+}
+
+.score-pane {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.score-pane .row {
+    line-height: 60px;
+    font-size: 18px;
+}
+
+.score-pane .row button {
+    vertical-align: middle;
+}
+
+.score-pane .submit {
+    margin: auto;
+    margin-top: 20px;
+    width: 160px;
+    display: block;
+}
+
+.submit.topcoat-button {
+    opacity: 0.4;
+}
+
+.pull-right {
+    display: inline-block;
+    right: 0;
+    position: absolute;
+}
+
+.edit-row {
+    display: flex;
+    padding: 5px;
+}
+
+.edit-row input {
+    height: 46px;
+    margin: 0 5px;
+}
+
+.edit-row button {
+    height: 46px;
+    margin-left: 10px;
+}
+
+input[type="date"] {
+    height: 38px;
+    font-size: 18px;
+    font-family: 'Source Sans', helvetica, arial, sans-serif;
+    border-radius: 5px;
+    background-color: #e5e9e8;
+    box-shadow: none;
+    border: 1px solid #a5a8a8;
+    padding: 4px;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+
+
+map {
+    display: block;
+}
+
+navbar {
+    display: block;
+    .topcoat-navigation-bar;
+
+    h1 {
+        .topcoat-navigation-bar__title;
+        line-height: 70px;
+        text-align: center;
+    }
+
+    button {
+        .topcoat-button--cta;
+        margin-top: 10px;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+}

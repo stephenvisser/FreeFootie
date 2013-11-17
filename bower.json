@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.2",
-    "topcoat": "~0.7.0",
+    "topcoat": "~0.8",
     "angular-google-maps": "*",
     "angular-route": "~1.2",
     "angular-resource": "~1.2"

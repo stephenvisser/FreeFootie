@@ -1,7 +1,8 @@
-<navigation title="game._location.name">
-<button class="topcoat-button--cta left" back>Back</button>
-<button class="topcoat-button--cta right" ng-click="score.checkedin=true" ng-hide="score.checkedin">Check In</button>
-</navigation>
+<navbar>
+	<button class="left" back>Back</button>
+	<button class="right" ng-click="score.checkedin=true" ng-hide="score.checkedin">Check In</button>
+	<h1>{{game._location.name}}</h1>
+</navbar>
 <div ng-hide="score.checkedin">
 	<map mark="game._location" style="height: 300px; width: 100%"></map>
 </div>
