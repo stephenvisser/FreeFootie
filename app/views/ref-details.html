@@ -1,17 +1,9 @@
 <navigation title="game._location.name">
-<button class="topcoat-button--cta" ng-click="score.checkedin=true" ng-hide="score.checkedin">Check In</button>
+<button class="topcoat-button--cta left" back>Back</button>
+<button class="topcoat-button--cta right" ng-click="score.checkedin=true" ng-hide="score.checkedin">Check In</button>
 </navigation>
 <div ng-hide="score.checkedin">
-<div class="google-map"
-	center="location"
-	zoom="14"
-	markers="[location]"
-	mark-click="false"
-	draggable="true"
-	fit="false"
-	events="events"
-	style="height: 300px; width: 100%">
-</div>
+	<map mark="game._location" style="height: 300px; width: 100%"></map>
 </div>
 <div ng-show="score.checkedin" class="score-pane">
 	<div class="row">

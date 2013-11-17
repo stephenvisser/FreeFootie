@@ -162,3 +162,17 @@ input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
 }
+
+.left {
+    float: left;
+    margin-top: 10px;
+}
+
+.right {
+    float: right;
+    margin-top: 10px;
+}
+
+map {
+    display: block;
+}

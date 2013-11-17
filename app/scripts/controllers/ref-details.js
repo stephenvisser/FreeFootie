@@ -11,17 +11,11 @@ angular.module('freefootieApp')
         game._home = Team.get({id: game.home});
       });
 
-      $scope.location = {"latitude": 53.568033,
-    "longitude": -113.446072};
       $scope.score = {home: 0,
       away: 0, checkedin: false};
       $scope.edit = {submitted: false};
 
-       function saveLocally() {
-        // To-do: save in temporary storage.
-       }
-
-       $scope.abs = function (num) {
+      $scope.abs = function (num) {
         return num < 0 ? 0 : num;
-       }
+      }
   });
