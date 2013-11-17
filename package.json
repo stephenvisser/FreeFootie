@@ -23,7 +23,8 @@
     "karma": "~0.10.4",
     "grunt-karma": "~0.6.2",
     "matchdep": "~0.3.0",
-    "grunt-nodemon": "~0.1.2"
+    "grunt-nodemon": "~0.1.2",
+    "karma-coverage": "~0.1.2"
   },
   "engines": {
     "node": ">=0.8.0"

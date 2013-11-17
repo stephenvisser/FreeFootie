@@ -60,4 +60,5 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask('server', ['concurrent']);
+    grunt.registerTask('test', ['karma']);
 };

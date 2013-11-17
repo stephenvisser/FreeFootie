@@ -4,3 +4,6 @@ dist
 .sass-cache
 bower_components/
 .nodemonignore
+
+npm-debug.log
+coverage/
