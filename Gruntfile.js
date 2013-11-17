@@ -10,13 +10,20 @@ module.exports = function(grunt){
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
-        karma: {
-            unit: {
-                configFile: 'karma.conf.js',
-                runnerPort: 9999,
-                singleRun: false,
-                browsers: ['Chrome']
-            }
+    karma: {
+      options: {
+        configFile: 'karma.conf.js',
+        runnerPort: 9999,
+      },
+      unit: {
+        singleRun: false,
+        browsers: ['Chrome'],
+        autoWatch: true
+      },
+      continuous: {
+        singleRun: true,
+        browsers: ['PhantomJS']
+      }
 		},
 		watch: {
             options: {
@@ -60,5 +67,5 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask('server', ['concurrent']);
-    grunt.registerTask('test', ['karma']);
+    grunt.registerTask('test', ['karma:unit']);
 };
