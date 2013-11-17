@@ -4,7 +4,7 @@ module.exports = function(config){
     {  
       basePath : '',
       preprocessors: {
-        'client/app/scripts/**/*.js': 'coverage'
+        'client/app/**/*.js': 'coverage'
       },
       frameworks : ["jasmine"],
       files : [
@@ -13,6 +13,7 @@ module.exports = function(config){
         'client/bower_components/angular-route/angular-route.js',
         'client/bower_components/angular-mocks/angular-mocks.js',
         'client/bower_components/angular-google-maps/src/angular-google-maps.js',
+        'client/app/app.js',
         'client/app/**/*.js',
         'test/**/*.js'
       ],

@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('freefootieApp').filter('tdelta', function () {
+angular.module('freefootieApp').filter('timeDistance', function () {
 
     function format(number, name) {
         if (number) {
