@@ -43,7 +43,7 @@ module.exports = function(grunt){
         nodemon: {
             dev: {
                 options: {
-                    file: 'app.js',
+                    file: 'server.js',
                     ignoredFiles: ['client/**/*'],
                     env: {
                         PORT: port

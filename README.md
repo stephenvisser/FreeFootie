@@ -18,7 +18,7 @@ This nodejs application has its components split between client and server. File
 have to do with what is actually loaded and rendered by the browser. This means html, javascript (angular components), etc.
 The server directory contains all the backend systems such as the REST api handling, database interactions, etc.
 
-The http server is started and configured in app.js. Setting things like port numbers can be done in settings.json.
+The http server is started and configured in server.js. Setting things like port numbers can be done in settings.json.
 
 ###Pages
 
