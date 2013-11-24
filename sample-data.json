@@ -1,7 +1,7 @@
 {
     "games": [
         {
-            "_id": 1,
+            "_id": "1",
             "location": 1,
             "date": "<<now~5h>>",
             "home": 1,
@@ -9,7 +9,7 @@
             "state": null
         },
         {
-            "_id": 2,
+            "_id": "2",
             "location": 2,
             "date": "<<now~5h>>",
             "home": 3,
@@ -17,7 +17,7 @@
             "state": "inprogress"
         },
         {
-            "_id": 3,
+            "_id": "3",
             "location": 3,
             "date": "<<now~5h>>",
             "home": 5,
@@ -27,19 +27,19 @@
     ],
     "locations": [
         {
-            "_id": 1,
+            "_id": "1",
             "name": "Eastglen School",
             "latitude": 53.568033,
             "longitude": -113.446072
         },
         {
-            "_id": 2,
+            "_id": "2",
             "name": "Highlands School",
             "latitude": 53.56946,
             "longitude": -113.435493
         },
         {
-            "_id": 3,
+            "_id": "3",
             "name": "Queen Elizabeth High School",
             "latitude": 53.591779,
             "longitude": -113.487721
@@ -47,61 +47,61 @@
     ],
     "players": [
         {
-            "_id": 1,
+            "_id": "1",
             "name": "John Smith",
             "number": 1,
             "dob": "2000-5-13"
         },
         {
-            "_id": 2,
+            "_id": "2",
             "name": "Tim Robertson",
             "number": 2,
             "dob": "2000-5-13"
         },
         {
-            "_id": 3,
+            "_id": "3",
             "name": "Jim McPherson",
             "number": 3,
             "dob": "2000-5-13"
         },
         {
-            "_id": 4,
+            "_id": "4",
             "name": "Bob Pots",
             "number": 4,
             "dob": "2000-5-13"
         },
         {
-            "_id": 5,
+            "_id": "5",
             "name": "Ryan Williams",
             "number": 5,
             "dob": "2000-5-13"
         },
         {
-            "_id": 6,
+            "_id": "6",
             "name": "Norman Iverson",
             "number": 6,
             "dob": "2000-5-13"
         },
         {
-            "_id": 7,
+            "_id": "7",
             "name": "Charles Thomson",
             "number": 7,
             "dob": "2000-5-13"
         },
         {
-            "_id": 8,
+            "_id": "8",
             "name": "Jay Sellick",
             "number": 8,
             "dob": "2000-5-13"
         },
         {
-            "_id": 9,
+            "_id": "9",
             "name": "Trevor Cook",
             "number": 9,
             "dob": "2000-5-13"
         },
         {
-            "_id": 10,
+            "_id": "10",
             "name": "Krysta Mirzayans",
             "number": 10,
             "dob": "2000-5-13"
@@ -109,17 +109,17 @@
     ],
     "pools": [
         {
-            "_id": 1,
+            "_id": "1",
             "name": "North Pool"
         },
         {
-            "_id": 2,
+            "_id": "2",
             "name": "South Pool"
         }
     ],
     "teams": [
         {
-            "_id": 1,
+            "_id": "1",
             "name": "Ronald's Rhutabagas",
             "wins": 5,
             "losses": 3,
@@ -131,7 +131,7 @@
             "players": [1,2,3,4,9]
         },
         {
-            "_id": 2,
+            "_id": "2",
             "name": "Matilda's Moose",
             "wins": 3,
             "losses": 3,
@@ -143,7 +143,7 @@
             "players": [1,2,3,4,9]
         },
         {
-            "_id": 3,
+            "_id": "3",
             "name": "Dave's Ducks",
             "wins": 0,
             "losses": 5,
@@ -155,7 +155,7 @@
             "players": [1,2,3,4,9]
         },
         {
-            "_id": 4,
+            "_id": "4",
             "name": "Jack's Jackalopes",
             "wins": 1,
             "losses": 5,
@@ -167,7 +167,7 @@
             "players": [1,2,3,4,9]
         },
         {
-            "_id": 5,
+            "_id": "5",
             "name": "Zebidiah's Zebras",
             "wins": 2,
             "losses": 4,
@@ -179,7 +179,7 @@
             "players": [1,2,3,4,9]
         },
         {
-            "_id": 6,
+            "_id": "6",
             "name": "Gertrude's Geese",
             "wins": 4,
             "losses": 1,
