@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- build:css main.css -->
-        <link rel="stylesheet" href="styles/icomatic.css">
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-</head>
+    <!-- build:css main.css -->
+    <link rel="stylesheet" href="styles/icomatic.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
   <body ng-app="freefootieApp">
 
-    <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -23,7 +23,8 @@
     <script src="vendor/angular/angular.js"></script>
     <script src="vendor/angular/angular-resource.js"></script>
     <script src="vendor/angular/angular-route.js"></script>
-    <script src="app/app.js"></script>
+
+    <script src="app/app.js" require=""></script>
     <script src="app/ref/controllers/ref.js"></script>
     <script src="app/ref/controllers/ref-details.js"></script>
     <script src="app/ref/controllers/team.js"></script>
@@ -37,5 +38,5 @@
     <script src="app/common/directives/back.js"></script>
     <script src="app/common/directives/map.js"></script>
     <!-- endbuild -->
-</body>
+  </body>
 </html>
