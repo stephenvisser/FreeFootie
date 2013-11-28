@@ -3896,7 +3896,7 @@ Everything below this line should be calculated using the variables above. This 
 }
 
 .notstarted {
-  background-color: #EB5D73;
+  background-color: #cccccc;
 }
 
 .inprogress {
