@@ -1,5 +1,12 @@
 @import (less) "../vendor/topcoat/css/topcoat-mobile-light.css";
 
+body{
+		font-family: 'Open Sans', sans-serif;
+		text-rendering: optimizeLegibility;
+}
+a{
+		color:#187EcF;
+}
 .location {
     font-weight: bold;
 }
@@ -10,7 +17,7 @@
 }
 
 .notstarted {
-    background-color: #EB5D73;
+    background-color: #fe7a81;
 }
 
 .inprogress {
@@ -25,8 +32,10 @@
     display: inline-block;
     width: 20px;
     height: 20px;
+		line-height:20px;
     border-radius: 5px;
-    padding: 9px;
+    padding: 10px;
+		color:#000;
     font-weight: bold;
     text-align: center;
     align-self: center;
@@ -39,10 +48,13 @@
     box-sizing: border-box;
     vertical-align: middle;
     text-align: center;
+		font-weight:400;
     line-height: 28px;
-    background: #444;
-    color: #bcbfbf;
+    background: #fff;
+    color: #666;
     margin: auto;
+		-webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+		box-shadow: 0 0 1px 1px rgba(210,210,210,1);
 }
 
 .plus {
@@ -58,10 +70,18 @@
 .team-info {
     margin-right: 20px;
     vertical-align: middle;
-    font-size: 16px;
-    line-height: 40px;
+		font-weight:600;
+    font-size: 18px;
+    line-height: 38px;
     text-align: center;
     flex-grow: 1;
+		color:#222;
+		
+		em{
+				color:#678;
+				font-style:normal;
+				font-weight:300;
+		}
 }
 
 .score-input {
@@ -135,9 +155,12 @@
 
 .list {
     .topcoat-list;
+		background:#E9EcEb;
+		
     ul {
         .topcoat-list__container;
-
+				color: #222;
+				
         li {
             padding-top: 5px;
             padding-bottom: 5px;
@@ -145,10 +168,15 @@
             display: flex;
             .topcoat-list__item;
 
+						&:hover{
+								background:#Eff3f2;
+						}
+
             .caret {
-                font-size: 36px;
-                font-weight: bold;
-                align-self: center;
+                font-size: 70px;
+                font-weight: 400;
+                line-height:90px;
+								color:#ccc;
             }
 
         }
@@ -174,6 +202,26 @@ input[type=date]::-webkit-inner-spin-button {
 
 map {
     display: block;
+}
+
+.topcoat-button-bar{
+		margin:15px auto 0;
+		
+		button{
+		    background-color: #288EDF;
+		    border: 1px solid #134F7F;
+		    box-shadow: 0 1px rgba(255, 255, 255, 0.36) inset;
+		    color: #FFFFFF;
+		    font-weight: 500;
+		    text-shadow: 0 -1px  0 rgba(0, 0, 0, 0.6);
+
+				&:hover{
+						background-color:#4ca1e4;
+				}
+		}
+		button.no-right{
+				border-right:none;
+		}
 }
 
 navbar {

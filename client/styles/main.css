@@ -3886,6 +3886,15 @@ Everything below this line should be calculated using the variables above. This 
 
 /* Search */
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: #187EcF;
+}
+
 .location {
   font-weight: bold;
 }
@@ -3896,7 +3905,7 @@ Everything below this line should be calculated using the variables above. This 
 }
 
 .notstarted {
-  background-color: #EB5D73;
+  background-color: #fe7a81;
 }
 
 .inprogress {
@@ -3911,8 +3920,10 @@ Everything below this line should be calculated using the variables above. This 
   display: inline-block;
   width: 20px;
   height: 20px;
+  line-height: 20px;
   border-radius: 5px;
-  padding: 9px;
+  padding: 10px;
+  color: #000;
   font-weight: bold;
   text-align: center;
   -webkit-align-self: center;
@@ -3929,10 +3940,13 @@ Everything below this line should be calculated using the variables above. This 
   box-sizing: border-box;
   vertical-align: middle;
   text-align: center;
+  font-weight: 400;
   line-height: 28px;
-  background: #444;
-  color: #bcbfbf;
+  background: #fff;
+  color: #666;
   margin: auto;
+  -webkit-box-shadow: 1px 1px 1px 1px #000000;
+  box-shadow: 0 0 1px 1px #d2d2d2;
 }
 
 .plus {
@@ -3948,13 +3962,21 @@ Everything below this line should be calculated using the variables above. This 
 .team-info {
   margin-right: 20px;
   vertical-align: middle;
-  font-size: 16px;
-  line-height: 40px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 38px;
   text-align: center;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex: 1;
   flex-grow: 1;
+  color: #222;
+}
+
+.team-info em {
+  color: #678;
+  font-style: normal;
+  font-weight: 300;
 }
 
 .score-input {
@@ -4047,6 +4069,7 @@ Everything below this line should be calculated using the variables above. This 
   border-top: 1px solid #9daca9;
   border-bottom: 1px solid #fff;
   background-color: #e5e9e8;
+  background: #E9EcEb;
 }
 
 .list ul {
@@ -4055,6 +4078,7 @@ Everything below this line should be calculated using the variables above. This 
   list-style-type: none;
   border-top: 1px solid #9daca9;
   color: #454545;
+  color: #222;
 }
 
 .list ul li {
@@ -4072,12 +4096,15 @@ Everything below this line should be calculated using the variables above. This 
   border-bottom: 1px solid #9daca9;
 }
 
+.list ul li:hover {
+  background: #Eff3f2;
+}
+
 .list ul li .caret {
-  font-size: 36px;
-  font-weight: bold;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 90px;
+  color: #ccc;
 }
 
 input[type="date"] {
@@ -4099,6 +4126,28 @@ input[type=date]::-webkit-inner-spin-button {
 
 map {
   display: block;
+}
+
+.topcoat-button-bar {
+  margin: 15px auto 0;
+}
+
+.topcoat-button-bar button {
+  background-color: #288EDF;
+  border: 1px solid #134F7F;
+  -webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.36) inset;
+  box-shadow: 0 1px rgba(255, 255, 255, 0.36) inset;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.topcoat-button-bar button:hover {
+  background-color: #4ca1e4;
+}
+
+.topcoat-button-bar button.no-right {
+  border-right: none;
 }
 
 navbar {
