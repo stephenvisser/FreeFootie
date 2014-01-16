@@ -1,6 +1,6 @@
 'use strict'
 
-var fs = require('fs');
+var db = require('./db');
 
 var transform = function(data) {
     for (var property in data) {
@@ -16,30 +16,25 @@ var transform = function(data) {
             }
         }
     }
+
+    data.id = data._id;
+    delete data._id;
+
     return data;
 };
 
-var getById = function (array, id) {
-
-    var a = array.filter(function(elem) {
-        return elem.id == id;
-    });
-
-    if (a.length > 0)
-        return a[0];
-    return {};
-};
-
-var dataLoader = function (datafile) {
+var dataLoader = function (collection) {
     return function (req, res){
-        var id = parseInt( req.params.id );
-        var data = JSON.parse(fs.readFileSync(datafile));
+        var id = req.params.id;
 
         if (id) {
-             res.send( 
-                 transform(getById(data, id))
+          db[collection].findOne( {"_id" : id}, function (err, data) {
+             res.send(
+                 transform(data)
              );
+          });
         } else {
+          db[collection].find( {}, function (err, data) {
             res.send(
                 data.map(transform).filter(function(item){
                     return Object.keys(req.params).every(function(prop){
@@ -54,16 +49,17 @@ var dataLoader = function (datafile) {
                         } 
                     });
                 }));
+          });
         }
     };
 };
 
 
 exports.configureRoutes = function(app){
-    app.get('/api/games/:id?', dataLoader('data/games.json'));
-    app.get('/api/locations/:id?', dataLoader('data/locations.json'));
-    app.get('/api/pools/:id?', dataLoader('data/pools.json'));
-    app.get('/api/teams/:id?', dataLoader('data/teams.json'));
-    app.get('/api/players/:id?', dataLoader('data/players.json'));
+    app.get('/api/games/:id?', dataLoader('games'));
+    app.get('/api/locations/:id?', dataLoader('locations'));
+    app.get('/api/pools/:id?', dataLoader('pools'));
+    app.get('/api/teams/:id?', dataLoader('teams'));
+    app.get('/api/players/:id?', dataLoader('players'));
 };
 
