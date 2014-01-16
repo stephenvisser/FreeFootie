@@ -16,10 +16,17 @@
   </ul>
 </div>
 
- <a href="/#/admin/team" class="topcoat-button--cta" style="margin: 20px" >Manage Teams</a>
-
-  <button class="topcoat-button--cta" style="margin: 20px" ng-click="go('scheduler')">Manage Games</button>
-
- <button class="topcoat-button--cta" style="margin: 20px" >Manage Location</button>
-
-<button class="topcoat-button--cta" style="margin: 20px" >Manage Divisions</button>
+<div class="topcoat-button-bar cta">
+	<div class="topcoat-button-bar__item">
+	 	<button class="topcoat-button-bar__button full" ng-click="go('/admin/team')">&nbsp; Teams &nbsp;</button>
+	</div>
+	<div class="topcoat-button-bar__item">
+	  <button class="topcoat-button-bar__button full no-right" ng-click="go('scheduler')">&nbsp; Games &nbsp;</button>
+	</div>
+	<div class="topcoat-button-bar__item">
+	 	<button class="topcoat-button-bar__button full">&nbsp; Location &nbsp;</button>
+	</div>
+	<div class="topcoat-button-bar__item">
+		<button class="topcoat-button-bar__button full">&nbsp; Divisions &nbsp;</button>
+	</div>
+</div>
