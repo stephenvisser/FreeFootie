@@ -1,5 +1,7 @@
 @import (less) "../vendor/topcoat/css/topcoat-mobile-light.css";
-
+html, body{
+    height:100%;
+}
 body{
 		font-family: 'Open Sans', sans-serif;
 		text-rendering: optimizeLegibility;
@@ -106,10 +108,7 @@ a{
 }
 
 .score-pane {
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
+    /*padding: 20px 10px;*/
 }
 
 .score-pane .row {
@@ -133,9 +132,7 @@ a{
 }
 
 .pull-right {
-    display: inline-block;
-    right: 0;
-    position: absolute;
+    float:right;
 }
 
 .edit-row {
@@ -245,5 +242,32 @@ navbar {
 
     .right {
         float: right;
+    }
+}
+
+.good-behaviour-tab{
+    background:purple;
+    box-shadow:0 -3px 3px rgba(0,0,0,0.2);
+    height:25px;
+    position:absolute;
+    width:100%;
+    bottom:0;
+    border-top:1px solid rgba(0,0,0,0.1);
+    border-radius:5px 5px 0 0;
+    opacity:0.95;
+    transition:height 0.25s;
+    color:white;
+    overflow:hidden;
+
+    &.visible{
+        height:98%;
+    }
+
+    .card-content{
+        padding:0 5px;
+        h1{
+            margin-top:0;
+            padding-top:0;
+        }
     }
 }
