@@ -16,12 +16,19 @@ angular.module('freefootieApp')
       $scope.score = {
         home: 0,
         away: 0,
-        checkedin: false
+        checkedin: false,
+        purpleCards: []
       };
 
-      $scope.edit = {submitted: false};
+      $scope.addPurpleCard = function(playerNumber){
+        if(playerNumber!=null)
+          $scope.score.purpleCards.push(playerNumber);
+      };
+
+      $scope.edit = { submitted: false };
 
       $scope.abs = function (num) {
         return num < 0 ? 0 : num;
       }
+
   });
