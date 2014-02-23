@@ -1,6 +1,8 @@
 'use strict'
 
 var db = require('./db');
+var games = require('./database/games');
+
 
 var transform = function(data) {
     for (var property in data) {

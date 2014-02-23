@@ -5,7 +5,8 @@
     "express": "~3.4.4",
     "less-middleware": "~0.1.14",
     "autoprefixer": "*",
-    "mongojs": "~0.9.8"
+    "mongojs": "~0.9.8",
+    "q": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
