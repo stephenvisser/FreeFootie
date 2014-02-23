@@ -1,4 +1,4 @@
-var repository = require('../database/games');
+var repository = require('../database/players');
 
 exports.get = function(req, res){
 	var id = req.params.id;

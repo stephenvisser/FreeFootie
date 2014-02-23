@@ -1,7 +1,11 @@
 'use strict'
 
-var db = require('./db');
-var games = require('./api/games');
+var db = require('./db'),
+ games = require('./api/games'),
+ locations = require('./api/locations'),
+ players = require('./api/players'),
+ pools = require('./api/pools'),
+ teams = require('./api/teams');
 
 
 var transform = function(data) {
@@ -59,9 +63,9 @@ var dataLoader = function (collection) {
 
 exports.configureRoutes = function(app){
     app.get('/api/games/:id?', games.get);
-    app.get('/api/locations/:id?', dataLoader('locations'));
-    app.get('/api/pools/:id?', dataLoader('pools'));
-    app.get('/api/teams/:id?', dataLoader('teams'));
-    app.get('/api/players/:id?', dataLoader('players'));
+    app.get('/api/locations/:id?', locations.get);
+    app.get('/api/pools/:id?', pools.get);
+    app.get('/api/teams/:id?', teams.get);
+    app.get('/api/players/:id?', players.get);
 };
 

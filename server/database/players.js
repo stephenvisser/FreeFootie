@@ -1,9 +1,9 @@
 var mongojs = require("mongojs");
-var db = require("mongojs").connect("freefootie", ["games"]);
-var collection = db.games;
+var db = require("mongojs").connect("freefootie", ["players"]);
+var collection = db.players;
 var ObjectId = mongojs.ObjectId;
 var Q = require("q");
-var Game = require('../models/game');
+var Player = require('../models/player');
 
 exports.add = function(item){
 	var deferred = Q.defer();
@@ -49,9 +49,9 @@ function createCallback(deferred){
 			deferred.reject(new Error(err));
 		else if(result instanceof Array)
 			deferred.resolve(result.map(function(item){
-				return new Game(item);
+				return new Player(item);
 			}));
 		else
-			deferred.resolve(new Game(result));
+			deferred.resolve(new Player(result));
 	}
 }
