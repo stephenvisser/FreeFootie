@@ -13,6 +13,20 @@ module.exports = function Game(obj){
 	if(obj)
 		this.copyFrom(obj);
 
+	//handle sample data
+	if (this.date && this.date.match) {
+            var r = this.date.match(/<<now(?:~(\d)h)?>>/);
+            if (r) {
+                var time = new Date(),
+                    diff = r[1] | 0,
+                         hourOffset = Math.floor((Math.random() - 0.5) * 2 * diff),
+                         newTime = time.getTime() + hourOffset * 3600000;
+                console.log ("SSSSSSS", new Date(newTime));
+                this.date = new Date(newTime).toISOString();
+            }
+        }
+
+
 	this.ensureRequiredDefaults();
 };
 

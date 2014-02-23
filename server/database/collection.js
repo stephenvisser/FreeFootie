@@ -1,8 +1,8 @@
 var mongojs = require("mongojs");
-var db = require("mongojs").connect("freefootie", ["players"]);
+var db = require("mongojs").connect("freefootie", 
+	["games", "locations", "players", "pools", "teams"]);
 var ObjectId = mongojs.ObjectId;
 var Q = require("q");
-var Player = require('../models/player');
 
 module.exports = function(collectionName){
 	
