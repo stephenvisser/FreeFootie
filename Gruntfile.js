@@ -38,6 +38,10 @@ module.exports = function(grunt){
             },
             views: {
                 files:['server/views/*', 'server/static/*', 'client/app/**/*']
+            },
+            serverjs: {
+              files: ['server/**', 'test/server/**/*-tests.js'],
+              tasks: ['servertests']                
             }
         },
         nodemon: {
@@ -51,6 +55,9 @@ module.exports = function(grunt){
                 }
             }
         },
+        nodeunit: {
+            all: ['test/server/**/*-tests.js']
+        },
 	    open: {
             all: {
                 path: 'http://localhost:' + port
@@ -58,7 +65,7 @@ module.exports = function(grunt){
 	    },
 	    concurrent: {
             target: {
-                tasks: ['nodemon', 'watch', 'open'],
+                tasks: ['nodemon', 'watch', 'delayOpen'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -66,6 +73,16 @@ module.exports = function(grunt){
         }
     });
 
+     //delay opening browser - usually opens before server running
+      grunt.registerTask('delayOpen', 'delay open', function(){
+        var done = this.async();
+        setTimeout(function(){
+            grunt.task.run('open');
+            done();
+        }, 1000);
+      });
+
     grunt.registerTask('server', ['concurrent']);
     grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('servertests', ['nodeunit:all']);
 };
