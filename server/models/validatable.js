@@ -17,10 +17,10 @@ exports.makeValidatable = function(obj, validationRules){
 		ensureRequiredDefaults(obj, validationRules);
 	};
 
-	obj.copyFrom = function(obj, from){
+	obj.copyFrom = function(from){
 		for(var prop in from){	
 			if(prop=='_id')
-				obj.id = from._id.toHexString();
+				obj.id = from._id;// from._id.toHexString();
 			else if(validationRules[prop])
 				obj[prop]=from[prop];
 		}

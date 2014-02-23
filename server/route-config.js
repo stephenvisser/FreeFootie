@@ -1,7 +1,7 @@
 'use strict'
 
 var db = require('./db');
-var games = require('./database/games');
+var games = require('./api/games');
 
 
 var transform = function(data) {
@@ -58,7 +58,7 @@ var dataLoader = function (collection) {
 
 
 exports.configureRoutes = function(app){
-    app.get('/api/games/:id?', dataLoader('games'));
+    app.get('/api/games/:id?', games.get);
     app.get('/api/locations/:id?', dataLoader('locations'));
     app.get('/api/pools/:id?', dataLoader('pools'));
     app.get('/api/teams/:id?', dataLoader('teams'));

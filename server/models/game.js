@@ -2,7 +2,7 @@ var validatable = require('./validatable');
 
 module.exports = function Game(obj){
 
-	validatable.makeValidatableModel(this, {
+	validatable.makeValidatable(this, {
 		location: { required: true, displayName: 'Location' },
 		date: { required: true, displayName: 'Date' },
 		home: {required: true, displayName: 'Home Team' },
@@ -14,6 +14,5 @@ module.exports = function Game(obj){
 		this.copyFrom(obj);
 
 	this.ensureRequiredDefaults();
-
 };
 

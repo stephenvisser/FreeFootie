@@ -1,6 +1,6 @@
 var games = require('../database/games');
 
-exports.fetch = function(req, res){
+exports.get = function(req, res){
 	var id = req.params.id;
 	if(id)
 	{
