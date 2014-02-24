@@ -3494,6 +3494,10 @@ Everything below this line should be calculated using the variables above. This 
 /* Switch */
 /* Notification */
 /* Search */
+html,
+body {
+  height: 100%;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility;
@@ -3596,10 +3600,7 @@ a {
   z-index: 12;
 }
 .score-pane {
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  position: relative;
+  padding: 20px 10px;
 }
 .score-pane .row {
   line-height: 60px;
@@ -3618,9 +3619,7 @@ a {
   opacity: 0.4;
 }
 .pull-right {
-  display: inline-block;
-  right: 0;
-  position: absolute;
+  float: right;
 }
 .edit-row {
   display: -webkit-box;
@@ -3818,4 +3817,68 @@ navbar .left {
 }
 navbar .right {
   float: right;
+}
+.good-behaviour-tab {
+  background: purple;
+  -webkit-box-shadow: 0 -3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -3px 3px rgba(0, 0, 0, 0.2);
+  height: 25px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px 5px 0 0;
+  opacity: 0.95;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: white;
+  overflow: hidden;
+}
+.good-behaviour-tab .hide-btn,
+.good-behaviour-tab .down-btn {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 12px;
+  display: none;
+}
+.good-behaviour-tab.waving {
+  height: 98%;
+}
+.good-behaviour-tab.waving .down-btn {
+  display: block;
+}
+.good-behaviour-tab.entering {
+  height: 50%;
+}
+.good-behaviour-tab.entering .hide-btn {
+  display: block;
+}
+.good-behaviour-tab .card-content {
+  padding: 0 5px;
+}
+.good-behaviour-tab .card-content h1 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.good-behaviour-tab .card-form {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  text-align: center;
+  margin-top: 50px;
+}
+.good-behaviour-tab .card-form input {
+  width: 120px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.good-behaviour-tab.entering .card-form {
+  opacity: 1.0;
 }

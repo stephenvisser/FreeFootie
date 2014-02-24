@@ -25,3 +25,4 @@
 	</div>
 	<button ng-class="{false: 'topcoat-button--cta', true: 'topcoat-button'}[edit.submitted]" class="submit" ng-click="edit.submitted=true">{{{false: 'Submit Score', true: 'Thank You'}[edit.submitted]}}</button>
 </div>
+<purple-card ng-show="score.checkedin" commit="addPurpleCard"></purple-card>
