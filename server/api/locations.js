@@ -1,4 +1,5 @@
 var repository = require('../database/locations');
+var Location = require('../models/location');
 
 exports.get = function(req, res){
 	var id = req.params.id;
@@ -18,6 +19,20 @@ exports.get = function(req, res){
 				}, 
 				createErrorCallback(res));
 	}
+};
+
+exports.save = function(req, res){
+
+	var location = new Location(req.body);
+
+	var saveMethod = location.id ? repository.update : repository.add;
+
+	saveMethod(location)
+		.then(function(result){
+			res.json(result);
+		}, function(error){
+			res.send(500, 'Oops, something bad happened:'+error);
+		});		
 };
 
 function createErrorCallback(res){

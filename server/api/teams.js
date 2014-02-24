@@ -1,4 +1,5 @@
 var repository = require('../database/teams');
+var Team = require('../models/team');
 
 exports.get = function(req, res){
 	var id = req.params.id;
@@ -18,6 +19,20 @@ exports.get = function(req, res){
 				}, 
 				createErrorCallback(res));
 	}
+};
+
+exports.save = function(req, res){
+
+	var team = new Team(req.body);
+
+	var saveMethod = team.id ? repository.update : repository.add;
+
+	saveMethod(team)
+		.then(function(result){
+			res.json(result);
+		}, function(error){
+			res.send(500, 'Oops, something bad happened:'+error);
+		});		
 };
 
 function createErrorCallback(res){

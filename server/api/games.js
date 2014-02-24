@@ -22,27 +22,18 @@ exports.get = function(req, res){
 };
 
 exports.save = function(req, res){
-	var props = copyPropertiesToObject(req.body, 
-		['id', 'location', 'date', 'home', 'away', 'state']);
 
-	var saveMethod = props.id ? repository.update : repository.add;
+	var game = new Game(req.body);
 
-	saveMethod(new Game(props))
+	var saveMethod = game.id ? repository.update : repository.add;
+
+	saveMethod(game)
 		.then(function(result){
 			res.json(result);
 		}, function(error){
 			res.send(500, 'Oops, something bad happened:'+error);
 		});		
 };
-
-function copyPropertiesToObject(from, properties){
-	var obj = {};
-	properties.forEach(function(name){
-		if(typeof from[name] !== 'undefined')
-			obj[name]=from[name];
-	});
-	return obj;
-}
 
 function createErrorCallback(res){
 	return function(error){

@@ -62,12 +62,21 @@ var dataLoader = function (collection) {
 
 
 exports.configureRoutes = function(app){
+    
     app.get('/api/games/:id?', games.get);
     app.post('/api/games', games.save);
 
     app.get('/api/locations/:id?', locations.get);
+    app.post('/api/locations', locations.save);
+
     app.get('/api/pools/:id?', pools.get);
+    app.post('/api/pools', pools.save);
+
     app.get('/api/teams/:id?', teams.get);
+    app.post('/api/teams', teams.save);
+
     app.get('/api/players/:id?', players.get);
+    app.post('/api/players', players.save);
+
 };
 
