@@ -46,7 +46,7 @@ var dataLoader = function (collection) {
                                 month = pDate.getMonth(),
                                 date = pDate.getDate();
                             return oDate.getYear() === pDate.getYear() && oDate.getMonth() === pDate.getMonth() && oDate.getDate() === pDate.getDate();
-                        } 
+                        }
                     });
                 }));
           });
@@ -54,12 +54,4 @@ var dataLoader = function (collection) {
     };
 };
 
-
-exports.configureRoutes = function(app){
-    app.get('/api/games/:id?', dataLoader('games'));
-    app.get('/api/locations/:id?', dataLoader('locations'));
-    app.get('/api/pools/:id?', dataLoader('pools'));
-    app.get('/api/teams/:id?', dataLoader('teams'));
-    app.get('/api/players/:id?', dataLoader('players'));
-};
-
+module.exports = dataLoader;

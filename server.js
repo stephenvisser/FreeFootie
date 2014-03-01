@@ -1,66 +1,35 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , http = require('http')
   , path = require('path')
-  , fs = require('fs')
+  , livereload = require('connect-livereload')
   , settings = require('./settings')
-  , routeConfig = require('./server/route-config')
-  , url = require('url')
-  , autoprefixer = require('autoprefixer');
-
-
-function prefixBridge(req, res, next) {
-  var pathname = path.join('client', url.parse(req.url).pathname);
-  if (pathname.match(/\.css/)) {
-    fs.readFile(pathname, 'utf8', function(err, str){
-      var compiled = autoprefixer.compile(str);
-      fs.writeFile(pathname, compiled, 'utf8', next);
-    });
-  } else {
-    next();
-  }
-}
-
+  , dataloader = require('./server/dataloader')
+  , clientDir = path.join(__dirname, 'client');
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || settings.webserver.port || 9000);
-app.set('views', __dirname + '/server/views');
-app.use(express.favicon(__dirname + '/client/favicon.ico'));
+app.use(express.favicon(path.join(clientDir + 'favicon.ico')));
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
 
 // load liveReload script only in development mode
 // load before app.router
 app.configure('development', function() {
-  // live reload script
-  var liveReloadPort = settings.liveReload.port || 35729;
-  var excludeList = ['.woff', '.flv'];
-
-  app.use(require('connect-livereload')({
-    port: liveReloadPort,
-    excludeList: excludeList
-  }));
+  console.log('configuring as development server');
+  // live reload script (adds js snippet, but doesn't host server)
+  app.use(livereload({ port: settings.liveReload.port }));
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.use(app.router);
-app.use(require('less-middleware')({ src: __dirname + '/client' }));
-app.use(prefixBridge);
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(clientDir));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-}
+app.get('/api/games/:id?', dataloader('games'));
+app.get('/api/locations/:id?', dataloader('locations'));
+app.get('/api/pools/:id?', dataloader('pools'));
+app.get('/api/teams/:id?', dataloader('teams'));
+app.get('/api/players/:id?', dataloader('players'));
 
-routeConfig.configureRoutes(app);
-
-var server = http.createServer(app).listen(app.get('port'), function(){
-  console.log('express server listening on port ' + app.get('port'));
+var server = http.createServer(app).listen(settings.webserver.port, function(){
+  console.log('express server listening on port ' + settings.webserver.port);
 });
