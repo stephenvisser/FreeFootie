@@ -47,4 +47,3 @@ angular.module('freefootieApp', ['ngResource', 'ngRoute'])
       $location.path(path);
     };
   });
-
