@@ -1,6 +1,12 @@
 'use strict'
 
-var db = require('./db');
+if (!process.env.MONGO_URL) {
+  console.error('Need to set mongo URL environment variable (run with gulp)');
+  process.exit(0);
+}
+
+var mongodb = require("mongojs"),
+    db = mongodb.connect(process.env.MONGO_URL, ["games", "locations", "players", "pools", "teams"]);
 
 var transform = function(data) {
     for (var property in data) {

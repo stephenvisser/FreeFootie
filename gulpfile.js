@@ -1,15 +1,20 @@
 var gulp = require('gulp'),
-    nodemon = require('gulp-nodemon'),
-    livereload = require('gulp-livereload')
     less = require('gulp-less'),
-    rm = require('rimraf'),
+    mongoService = require('./server/mongoService');
+    staticServerService = require('./server/staticServerService');
+    livereloadService = require('./server/livereloadService');
+    populateDBService = require('./server/populateDBService');
     q = require('q'),
+    fs = require('fs'),
     autoprefixer = require('gulp-autoprefixer'),
+    color = require('colors'),
     open = require('open');
 
 var server_port = 3000,
     livereload_port = 35729,
-    builddir = '.tmp';
+    mongo_url = "localhost:27017/freefootie",
+    builddir = '.tmp',
+    datafile = 'server/sample-data.json';
 
 var htmlSrc = 'client/**/*.html';
 gulp.task('html', function(){
@@ -31,48 +36,55 @@ gulp.task('js', function() {
 });
 
 gulp.task('clean', function(){
-  var later = q.defer();
-  rm('.tmp', function(err){
-    if (err) {
-      later.reject(err);
-    } else {
-      later.resolve();
-    }
+  return removeFolderService('.tmp');
+});
+
+gulp.task('seed', function() {
+  //This task will start the mongod DB and then load the requisite values
+  return mongoService().then(function(mongo) {
+    return populateDBService(mongo_url, datafile)
+
+    .finally(function(){
+      console.log('Killing mongo'.green);
+      mongo.kill();
+    });
   });
-  return later.promise;
 });
 
 gulp.task('server', ['html', 'js', 'css'], function(){
   //kick off a new livereload server
-  var server = livereload(livereload_port);
+  return mongoService()
 
-  function notify(file) {
-    server.changed(file.path);
-  }
+  .then(function(mongo){
+    return livereloadService(livereload_port)
 
-  livereload.servers[livereload_port].server.on('listening', function(){
-    //The livereload server is up and running, we can watch for changes
-    gulp.watch(htmlSrc, ['html']).on('change', notify);
-    gulp.watch(jsSrc, ['js']).on('change', notify);
-    gulp.watch(cssSrc, ['css']).on('change', notify);
-  });
+    .then(function(notify) {
+      gulp.watch(htmlSrc, ['html']).on('change', notify);
+      gulp.watch(jsSrc, ['js']).on('change', notify);
+      gulp.watch(cssSrc, ['css']).on('change', notify);
 
-  nodemon({
-    script: 'server.js',
-    //We don't want nodemon to watch all js files; whitelist 'server'
-    watch: ['server', 'server.js'],
-    env: {
-      NODE_ENV: 'development',
-      NODE_SERVER_PORT: server_port,
-      NODE_LIVERELOAD_PORT:livereload_port,
-      NODE_PUBLIC_DIRECTORY: builddir
-    }
-  })
-  .on('stdout', function(out){
-    if (String.fromCharCode.apply(null, new Uint16Array(out)).indexOf(server_port) != -1) {
-      //Since the 'start' nodemon event isn't emitted when the server STARTS,
-      //we use a very fragile listener that depends on stdout format
+      return staticServerService({
+        NODE_ENV: 'development',
+        NODE_SERVER_PORT: server_port,
+        NODE_LIVERELOAD_PORT:livereload_port,
+        NODE_PUBLIC_DIRECTORY: builddir,
+        MONGO_URL: mongo_url
+      }).then(function(nodemon){
+        gulp.watch('server.js', function(){
+          nodemon.restart();
+        });
+      });
+    })
+
+    .then(function(){
       open('http://localhost:' + server_port);
-    }
+      //Return a promise that is never fulfilled
+      return q.defer().promise;
+    })
+
+    .finally(function(){
+      console.log('Killing mongo'.green);
+      mongo.kill();
+    });
   });
 });

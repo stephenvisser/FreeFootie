@@ -42,6 +42,7 @@ angular.module('freefootieApp', ['ngResource', 'ngRoute'])
     .otherwise({
       redirectTo: '/admin'
     });
+
   }).run(function($rootScope, $location){
     $rootScope.go = function(path) {
       $location.path(path);
