@@ -39,7 +39,7 @@ gulp.task('clean', function(){
   return removeFolderService('.tmp');
 });
 
-gulp.task('seed', function() {
+gulp.task('init', function() {
   //This task will start the mongod DB and then load the requisite values
   return mongoService().then(function(mongo) {
     return populateDBService(mongo_url, datafile)
