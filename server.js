@@ -1,66 +1,63 @@
+var express = require('express'),
+    http = require('http'),
+    path = require('path'),
+    livereload = require('connect-livereload'),
+    games = require('./server/api/games'),
+    locations = require('./server/api/locations'),
+    players = require('./server/api/players'),
+    pools = require('./server/api/pools'),
+    teams = require('./server/api/teams'),
+    SERVER_PORT = 'NODE_SERVER_PORT',
+    LIVERELOAD_PORT = 'NODE_LIVERELOAD_PORT',
+    PUBLIC_DIRECTORY = 'NODE_PUBLIC_DIRECTORY';
 
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , http = require('http')
-  , path = require('path')
-  , fs = require('fs')
-  , settings = require('./settings')
-  , routeConfig = require('./server/route-config')
-  , url = require('url')
-  , autoprefixer = require('autoprefixer');
-
-
-function prefixBridge(req, res, next) {
-  var pathname = path.join('client', url.parse(req.url).pathname);
-  if (pathname.match(/\.css/)) {
-    fs.readFile(pathname, 'utf8', function(err, str){
-      var compiled = autoprefixer.compile(str);
-      fs.writeFile(pathname, compiled, 'utf8', next);
-    });
-  } else {
-    next();
-  }
+if (!process.env[SERVER_PORT]) {
+  console.error('Need to set the server port environment variable (run with gulp)');
+  process.exit(1);
+}
+if (!process.env[LIVERELOAD_PORT]) {
+  console.error('Need to set the livereload port environment variable (run with gulp)');
+  process.exit(1);
+}
+if (!process.env[PUBLIC_DIRECTORY]) {
+  console.error('Need to set the hosting directory environment variable (run with gulp)');
+  process.exit(1);
 }
 
-
-var app = express();
+var app = express(),
+    clientDir = path.join(__dirname, process.env[PUBLIC_DIRECTORY]);
 
 // all environments
-app.set('port', process.env.PORT || settings.webserver.port || 9000);
-app.set('views', __dirname + '/server/views');
-app.use(express.favicon(__dirname + '/client/favicon.ico'));
+app.use(express.favicon(path.join(clientDir + 'favicon.ico')));
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
 
 // load liveReload script only in development mode
-// load before app.router
 app.configure('development', function() {
-  // live reload script
-  var liveReloadPort = settings.liveReload.port || 35729;
-  var excludeList = ['.woff', '.flv'];
-
-  app.use(require('connect-livereload')({
-    port: liveReloadPort,
-    excludeList: excludeList
-  }));
+  console.log('configuring as development server');
+  // live reload script (adds js snippet, but doesn't host server)
+  app.use(livereload({ port: process.env[LIVERELOAD_PORT] }));
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+app.use(express.bodyParser());
 app.use(app.router);
-app.use(require('less-middleware')({ src: __dirname + '/client' }));
-app.use(prefixBridge);
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(clientDir));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-}
+app.get('/api/games/:id?', games.get);
+app.post('/api/games', games.save);
 
-routeConfig.configureRoutes(app);
+app.get('/api/locations/:id?', locations.get);
+app.post('/api/locations', locations.save);
 
-var server = http.createServer(app).listen(app.get('port'), function(){
-  console.log('express server listening on port ' + app.get('port'));
+app.get('/api/pools/:id?', pools.get);
+app.post('/api/pools', pools.save);
+
+app.get('/api/teams/:id?', teams.get);
+app.post('/api/teams', teams.save);
+
+app.get('/api/players/:id?', players.get);
+app.post('/api/players', players.save);
+
+var server = http.createServer(app).listen(process.env[SERVER_PORT], function(){
+  console.log('Express server listening on port ' + process.env[SERVER_PORT]);
 });

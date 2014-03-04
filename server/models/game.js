@@ -21,7 +21,6 @@ module.exports = function Game(obj){
                     diff = r[1] | 0,
                          hourOffset = Math.floor((Math.random() - 0.5) * 2 * diff),
                          newTime = time.getTime() + hourOffset * 3600000;
-                console.log ("SSSSSSS", new Date(newTime));
                 this.date = new Date(newTime).toISOString();
             }
         }
@@ -29,4 +28,3 @@ module.exports = function Game(obj){
 
 	this.ensureRequiredDefaults();
 };
-

@@ -4,7 +4,7 @@ Join the conversation [here](https://groups.google.com/forum/#!forum/coding-with
 
 Prequisites:
 * [nodejs](http://nodejs.org/)
-* grunt-cli (npm package)
+* gulp (npm package, globally installed)
 * [mongodb](http://mongodb.org/)
 
 Starting work on this project is easy. You just need to install the prereqs for your chosen OS. After that, just follow the steps below:
@@ -12,8 +12,11 @@ Starting work on this project is easy. You just need to install the prereqs for 
     git clone https://github.com/ConCode/FreeFootie
     cd FreeFootie
     npm install
-    node seed-dev-database.js
-    grunt server
+    gulp init
+    gulp server
+
+Note: We've recently switched to gulp. You may have to re-run npm install and
+get your head around the new, improved build system
 
 ###Structure
 This nodejs application has its components split between client and server. Files found in the client directory
@@ -24,7 +27,7 @@ The http server is started and configured in server.js. Setting things like port
 
 ###Pages
 
-#### Admin: 
+#### Admin:
 
 - /admin (Dashboard, management portal)
 - /admin/game/:id (Game details)
