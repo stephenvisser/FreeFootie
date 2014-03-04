@@ -35,7 +35,7 @@ gulp.task('js', function() {
   .pipe(gulp.dest(builddir));
 });
 
-var staticSrc = ['client/favicon.ico'];
+var staticSrc = ['client/favicon.ico', 'client/apple-touch-icon.png'];
 gulp.task('assets', function(){
   return gulp.src(staticSrc)
   .pipe(gulp.dest(builddir));
