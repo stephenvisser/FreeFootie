@@ -35,14 +35,21 @@ app.configure('development', function() {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+app.use(express.bodyParser());
 app.use(app.router);
 app.use(express.static(clientDir));
 
-app.get('/api/games/:id?', repository('games'));
-app.get('/api/locations/:id?', repository('locations'));
-app.get('/api/pools/:id?', repository('pools'));
-app.get('/api/teams/:id?', repository('teams'));
-app.get('/api/players/:id?', repository('players'));
+app.get('/api/games/:id?', repository.fetch('games'));
+app.get('/api/locations/:id?', repository.fetch('locations'));
+app.get('/api/pools/:id?', repository.fetch('pools'));
+app.get('/api/teams/:id?', repository.fetch('teams'));
+app.get('/api/players/:id?', repository.fetch('players'));
+
+app.post('/api/games', repository.persist('games'));
+app.post('/api/locations', repository.persist('locations'));
+app.post('/api/pools', repository.persist('pools'));
+app.post('/api/teams', repository.persist('teams'));
+app.post('/api/players', repository.persist('players'));
 
 var server = http.createServer(app).listen(process.env[SERVER_PORT], function(){
   console.log('Express server listening on port ' + process.env[SERVER_PORT]);

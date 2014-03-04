@@ -29,6 +29,14 @@ var transform = function(data) {
     return data;
 };
 
+var dataSaver = function (collection) {
+    return function (req, res){
+      db[collection].save(req.body, function (err, data) {
+        console.log(err, 'saved a thingy, bitches');
+      });
+    };
+};
+
 var dataLoader = function (collection) {
     return function (req, res){
         var id = req.params.id;
@@ -60,4 +68,7 @@ var dataLoader = function (collection) {
     };
 };
 
-module.exports = dataLoader;
+module.exports = {
+  persist: dataSaver,
+  fetch: dataLoader
+};

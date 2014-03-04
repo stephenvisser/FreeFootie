@@ -35,6 +35,12 @@ gulp.task('js', function() {
   .pipe(gulp.dest(builddir));
 });
 
+var staticSrc = ['client/favicon.ico'];
+gulp.task('assets', function(){
+  return gulp.src(staticSrc)
+  .pipe(gulp.dest(builddir));
+});
+
 gulp.task('clean', function(){
   return removeFolderService('.tmp');
 });
@@ -51,7 +57,7 @@ gulp.task('init', function() {
   });
 });
 
-gulp.task('server', ['html', 'js', 'css'], function(){
+gulp.task('server', ['html', 'js', 'css', 'assets'], function(){
   //kick off a new livereload server
   return mongoService()
 
@@ -62,6 +68,7 @@ gulp.task('server', ['html', 'js', 'css'], function(){
       gulp.watch(htmlSrc, ['html']).on('change', notify);
       gulp.watch(jsSrc, ['js']).on('change', notify);
       gulp.watch(cssSrc, ['css']).on('change', notify);
+      gulp.watch(staticSrc, ['assets']).on('change', notify);
 
       return staticServerService({
         NODE_ENV: 'development',
@@ -70,7 +77,7 @@ gulp.task('server', ['html', 'js', 'css'], function(){
         NODE_PUBLIC_DIRECTORY: builddir,
         MONGO_URL: mongo_url
       }).then(function(nodemon){
-        gulp.watch('server.js', function(){
+        gulp.watch(['server.js', 'server/*.js'], function(){
           nodemon.restart();
         });
       });
