@@ -5,7 +5,8 @@
   "dependencies": {
     "mongojs": "~0.9.8",
     "q": "^1.0.0",
-    "express": "^3.4.8"
+    "express": "^3.4.8",
+    "connect-livereload": "^0.3.2"
   },
   "devDependencies": {
     "gulp-autoprefixer": "0.0.6",
