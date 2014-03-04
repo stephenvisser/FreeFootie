@@ -1,0 +1,7 @@
+<div class="topcoat-list">
+	<ul class="topcoat-list__container" >
+		<li ng-repeat="location in locations | orderBy:'name'" ng-click="go('/admin/location/'+location.id)" class="topcoat-list__item">
+		{{location.name}}
+		</li>
+	</ul>
+</div>
