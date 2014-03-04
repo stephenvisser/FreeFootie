@@ -1,11 +1,15 @@
-var express = require('express')
-  , http = require('http')
-  , path = require('path')
-  , livereload = require('connect-livereload')
-  , repository = require('./server/repository')
-  , SERVER_PORT = 'NODE_SERVER_PORT'
-  , LIVERELOAD_PORT = 'NODE_LIVERELOAD_PORT'
-  , PUBLIC_DIRECTORY = 'NODE_PUBLIC_DIRECTORY';
+var express = require('express'),
+    http = require('http'),
+    path = require('path'),
+    livereload = require('connect-livereload'),
+    games = require('./server/api/games'),
+    locations = require('./server/api/locations'),
+    players = require('./server/api/players'),
+    pools = require('./server/api/pools'),
+    teams = require('./server/api/teams'),
+    SERVER_PORT = 'NODE_SERVER_PORT',
+    LIVERELOAD_PORT = 'NODE_LIVERELOAD_PORT',
+    PUBLIC_DIRECTORY = 'NODE_PUBLIC_DIRECTORY';
 
 if (!process.env[SERVER_PORT]) {
   console.error('Need to set the server port environment variable (run with gulp)');
@@ -39,17 +43,20 @@ app.use(express.bodyParser());
 app.use(app.router);
 app.use(express.static(clientDir));
 
-app.get('/api/games/:id?', repository.fetch('games'));
-app.get('/api/locations/:id?', repository.fetch('locations'));
-app.get('/api/pools/:id?', repository.fetch('pools'));
-app.get('/api/teams/:id?', repository.fetch('teams'));
-app.get('/api/players/:id?', repository.fetch('players'));
+app.get('/api/games/:id?', games.get);
+app.post('/api/games', games.save);
 
-app.post('/api/games', repository.persist('games'));
-app.post('/api/locations', repository.persist('locations'));
-app.post('/api/pools', repository.persist('pools'));
-app.post('/api/teams', repository.persist('teams'));
-app.post('/api/players', repository.persist('players'));
+app.get('/api/locations/:id?', locations.get);
+app.post('/api/locations', locations.save);
+
+app.get('/api/pools/:id?', pools.get);
+app.post('/api/pools', pools.save);
+
+app.get('/api/teams/:id?', teams.get);
+app.post('/api/teams', teams.save);
+
+app.get('/api/players/:id?', players.get);
+app.post('/api/players', players.save);
 
 var server = http.createServer(app).listen(process.env[SERVER_PORT], function(){
   console.log('Express server listening on port ' + process.env[SERVER_PORT]);

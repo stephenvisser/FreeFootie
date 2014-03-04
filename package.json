@@ -4,6 +4,7 @@
   "repository": "https://github.com/ConCode/FreeFootie",
   "dependencies": {
     "mongojs": "~0.9.8",
+    "q": "^1.0.0",
     "express": "^3.4.8"
   },
   "devDependencies": {
@@ -12,10 +13,15 @@
     "gulp-livereload": "^1.2.0",
     "open": "0.0.4",
     "rimraf": "^2.2.6",
-    "q": "^1.0.0",
     "colors": "^0.6.2",
     "gulp": "^3.5.5",
-    "nodemon": "^1.0.15"
+    "nodemon": "^1.0.15",
+    "nodeunit": "~0.8.1",
+    "express": "~3.4.4",
+    "less-middleware": "~0.1.14",
+    "autoprefixer": "*",
+    "mongojs": "~0.9.8",
+    "q": "~1.0.0"
   },
   "engines": {
     "node": "~0.10"
