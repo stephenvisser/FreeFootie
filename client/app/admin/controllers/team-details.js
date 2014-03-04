@@ -14,5 +14,5 @@ angular.module('freefootieApp')
     	$scope.players = team.players.map(function(player){
 			return Player.get({id: player});
 		});
-    });
+  });
 });

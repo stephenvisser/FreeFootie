@@ -6,10 +6,9 @@ module.exports = function mongoService() {
       deferred = q.defer();
 
   mongod.stdout.on('data', function (data) {
-    if ((''+data).match('waiting for connections')) {
-      console.log('Mongo Daemon started'.green);
+    setTimeout(function(){
       deferred.resolve(mongod);
-    }
+    }, 100);
   });
 
   mongod.stderr.on('data', function (data) {

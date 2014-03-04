@@ -18,6 +18,8 @@ Starting work on this project is easy. You just need to install the prereqs for 
 Note: We've recently switched to gulp. You may have to re-run npm install and
 get your head around the new, improved build system
 
+Oh, and mongod will have to be on the CLASSPATH (Windows & OSX)
+
 ###Structure
 This nodejs application has its components split between client and server. Files found in the client directory
 have to do with what is actually loaded and rendered by the browser. This means html, javascript (angular components), etc.
