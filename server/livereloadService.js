@@ -3,24 +3,11 @@ var livereload = require('gulp-livereload'),
 
 module.exports = function(port) {
 
-  var server = livereload(port),
-      deferred = q.defer();
+  return function() {
+    var server = livereload(port);
 
-  function notify(file) {
-    server.changed(file.path);
+    return q.when(function notify(file) {
+      server.changed(file.path);
+    });
   }
-
-  function reject(err) {
-    deferred.reject(err);
-  }
-
-  var portNum = Object.keys(livereload.servers)[0]
-  livereload.servers[portNum].server.on('listening', function(){
-    //The livereload server is up and running, we can watch for changes
-    deferred.resolve(notify);
-  })
-  .on('close', reject)
-  .on('error', reject);
-
-  return deferred.promise;
 };

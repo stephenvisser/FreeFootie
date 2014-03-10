@@ -3,21 +3,21 @@ var spawn = require('child_process').spawn,
 
 module.exports = function mongoService() {
   var mongod = spawn('mongod'),
-      deferred = q.defer();
+      excRegExp = /exception/;
 
   mongod.stdout.on('data', function (data) {
-    setTimeout(function(){
-      deferred.resolve(mongod);
-    }, 100);
+    (''+data)
+    .split('\n')
+    .forEach(function(line){
+      if (line) {
+        if (excRegExp.test(line)) {
+          console.log('[' + 'mongo'.red + '] '+ line);
+        } else {
+          console.log('[' + 'mongo'.green + '] '+ line);
+        }
+      }
+    })
   });
 
-  mongod.stderr.on('data', function (data) {
-    console.log('[' + 'mongo'.red + '] '+data);
-  });
-
-  mongod.on('exit', function(code){
-    deferred.reject('Exited with code ' + code);
-  });
-
-  return deferred.promise;
+  return q.when(mongod);
 };
