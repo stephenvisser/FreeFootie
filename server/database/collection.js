@@ -8,15 +8,21 @@ module.exports = function(collectionName){
 	
 	var collection = db[collectionName];
 
-	this.add = function(item, callback){
-		collection.insert(item, callback);
+	this.insert = function(item, callback){
+		collection.insert(item,
+			function(err, results){
+				var single = (results && results.length) ? results[0]:null;
+				callback(err, single);
+			});
 	};
 
 	this.update = function(item, callback){
 		collection.update(
 			{_id : convertToDbId(item.id)}, 
 			{$set:item},
-			callback
+			function(err){
+				callback(err, item);
+			}
 		);
 	};
 
@@ -31,5 +37,7 @@ module.exports = function(collectionName){
 }
 
 function convertToDbId(id){
+	if(isNaN(id))
+		return ObjectId(id);
 	return id;//return ObjectId(id);
 }

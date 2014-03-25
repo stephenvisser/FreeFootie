@@ -39,6 +39,14 @@ angular.module('freefootieApp', ['ngResource', 'ngRoute'])
       templateUrl: 'app/admin/views/scheduler.html',
       controller: 'SchedulerCtrl'
     })
+    .when('/admin/location', {
+      templateUrl: 'app/admin/views/location.html',
+      controller: 'LocationCtrl'
+    })
+    .when('/admin/location/:id', {
+      templateUrl: 'app/admin/views/location-details.html',
+      controller: 'LocationDetailsCtrl'
+    })
     .otherwise({
       redirectTo: '/admin'
     });

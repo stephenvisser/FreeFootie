@@ -4,6 +4,7 @@ module.exports = function Location(obj){
 
 	validatable.makeValidatable(this, {
 		name: { required: true, displayName: 'Name' },
+		address: {required: false, displayName: 'Address'},
 		latitude: { required: true, displayName: 'Latitude' },
 		longitude: {required: true, displayName: 'Longitude' }
 	});
