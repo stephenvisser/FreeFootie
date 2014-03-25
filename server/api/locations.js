@@ -22,9 +22,9 @@ exports.get = function(req, res){
 };
 
 exports.save = function(req, res){
-
+	console.log('Saving location...');
 	var location = new Location(req.body);
-
+console.log(location);
 	var saveMethod = location.id ? repository.update : repository.add;
 
 	saveMethod(location)

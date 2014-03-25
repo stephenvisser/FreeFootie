@@ -19,8 +19,14 @@ exports.makeValidatable = function(obj, validationRules){
 
 	obj.copyFrom = function(from){
 		for(var prop in from){	
-			if(prop=='_id')
-				obj.id = from._id;// from._id.toHexString();
+			if(prop=='_id'){
+				if(isNaN(from._id))
+					obj.id=from._id.toHexString();
+				else
+					obj.id = from._id;
+			}
+			else if(prop=='id')
+				obj.id=from.id;
 			else if(validationRules[prop])
 				obj[prop]=from[prop];
 		}
