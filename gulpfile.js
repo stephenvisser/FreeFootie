@@ -56,7 +56,7 @@ gulp.task('clean', function(){
 
 gulp.task('init', function() {
   //This task will start the mongod DB and then load the requisite values
-  return mongoService().then(function(mongo) {
+  return mongoService().then(delay(100)).then(function(mongo) {
     return populateDBService(mongo_url, datafile)
 
     .finally(function(){
@@ -83,7 +83,7 @@ function beginWatchClient() {
   };
 }
 
-var serverPath = ['server.js', 'server/*.js'];
+var serverPath = ['server.js', 'server/**/*.js'];
 function beginWatchServer() {
   return function(notify) {
     gulp.watch(serverPath).on('change', notify);

@@ -19,13 +19,9 @@
         <input type="text" class="topcoat-text-input" placeholder="Number" ng-model="newPlayer.number" style="width: 100px"/>
         <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="newPlayer.name"/>
         <span style="flex-grow:1;"></span>
-        <button class="topcoat-button--cta">Save</button>
+        <button class="topcoat-button--cta" ng-click="update(currentTeam)">Save</button>
         <button class="topcoat-button" ng-click="edit.editing=false">Cancel</button>
       </li>
   </ul>
 </div>
 <div class="vs" style="margin-top:10px; font-weight: bold" ng-click="edit.editing=true">+</div>
-
-
-
-

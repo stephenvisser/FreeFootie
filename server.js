@@ -15,10 +15,6 @@ if (!process.env[SERVER_PORT]) {
   console.error('Need to set the server port environment variable (run with gulp)');
   process.exit(1);
 }
-if (!process.env[LIVERELOAD_PORT]) {
-  console.error('Need to set the livereload port environment variable (run with gulp)');
-  process.exit(1);
-}
 if (!process.env[PUBLIC_DIRECTORY]) {
   console.error('Need to set the hosting directory environment variable (run with gulp)');
   process.exit(1);
@@ -35,7 +31,8 @@ app.use(express.logger('dev'));
 app.configure('development', function() {
   console.log('configuring as development server');
   // live reload script (adds js snippet, but doesn't host server)
-  app.use(livereload({ port: process.env[LIVERELOAD_PORT] }));
+  if (process.env[LIVERELOAD_PORT]) app.use(livereload({ port: process.env[LIVERELOAD_PORT] }));
+
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 

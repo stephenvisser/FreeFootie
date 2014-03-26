@@ -6,13 +6,31 @@ angular.module('freefootieApp')
     var Team = $resource('/api/teams/:id');
     var Pool = $resource('/api/pools/:id');
 
-    Team.query({}, function(teams) {
-    	$scope.divs = teams.reduce(function(obj, team){
-	    	Pool.get({id: team.pool}, function(pool){
-				if (!obj[pool.name]) obj[pool.name] = [];
-		    	obj[pool.name].push(team);
-	    	});
-	    	return obj;
-	    }, {});
+    Pool.query({}, function(pools){
+        $scope.pools = pools.reduce(function(obj, pool){
+          obj[pool.id] = pool;
+          return obj;
+        }, {});
     });
+
+    function update() {
+      Team.query({}, function(teams) {
+      	$scope.divs = teams.reduce(function(obj, team){
+  	    	Pool.get({id: team.pool}, function(pool){
+  				if (!obj[pool.id]) obj[pool.id] = [];
+  		    	obj[pool.id].push(team);
+  	    	});
+  	    	return obj;
+  	    }, {});
+      });
+    }
+
+    update();
+
+    $scope.add = function(name, division) {
+      Team.save({
+        name: name,
+        pool: division
+      }).$promise.then(update);
+    }
 });

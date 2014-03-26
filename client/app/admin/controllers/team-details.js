@@ -11,8 +11,14 @@ angular.module('freefootieApp')
 
     $scope.currentTeam = Team.get({id: $routeParams.id}, function(team) {
     	$scope.pool = Pool.get({id: team.pool});
-    	$scope.players = team.players.map(function(player){
+    	$scope.players = (team.players || []).map(function(player){
 			return Player.get({id: player});
 		});
+
+    $scope.update = function(team) {
+      Team.update(team).$promise.then(function(){
+        $scope.edit.editing = false;
+      });
+    }
   });
 });

@@ -9,8 +9,8 @@ exports.add = function(item){
 	if(!item.validate())
 		deferred.reject(new Error('Invalid location:'+item.getValidationErrors().join('|')));
 	else
-		collection.insert( item, mapper.mapCallbackToPromise(deferred, Location) );
-	
+		collection.insert( item, mapper.mapCallbackToPromise(deferred, Location, true) );
+
 	return deferred.promise;
 };
 
@@ -20,14 +20,14 @@ exports.update = function(item){
 	if(!item.validate())
 		deferred.reject(new Error('Invalid location:'+item.getValidationErrors().join('|')));
 	else
-		collection.update( item, mapper.mapCallbackToPromise(deferred, Location) );
-	
+		collection.update( item, mapper.mapCallbackToPromise(deferred, Location, true) );
+
 	return deferred.promise;
 };
 
 exports.getById = function(id){
 	var deferred = Q.defer();
-	collection.getById( id, mapper.mapCallbackToPromise(deferred, Location) );
+	collection.getById( id, mapper.mapCallbackToPromise(deferred, Location, true) );
 	return deferred.promise;
 };
 
