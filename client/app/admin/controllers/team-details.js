@@ -16,7 +16,9 @@ angular.module('freefootieApp')
 		});
 
     $scope.update = function(team) {
-      Team.update(team).$promise.then(function(){
+      var result = Team.save(team);
+
+      result.then(function(val, err){
         $scope.edit.editing = false;
       });
     }

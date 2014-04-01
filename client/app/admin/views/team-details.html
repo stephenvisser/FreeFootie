@@ -9,8 +9,8 @@
 	    </li>
       <li class="topcoat-list__item" ng-show="edit.editing" style="line-height: 50px">
         Coach:
-        <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="newPlayer.number" style="width: 100px"/>
-        <input type="text" class="topcoat-text-input" placeholder="Phone Number" ng-model="newPlayer.name"/>
+        <input type="text" class="topcoat-text-input" placeholder="Name" ng-model="currentTeam.coach" style="width: 100px"/>
+        <input type="text" class="topcoat-text-input" placeholder="Phone Number" ng-model="currentTeam.phone"/>
       </li>
        <li ng-repeat="player in players" class="topcoat-list__item">
            {{player.number}}&nbsp - {{player.name}}
