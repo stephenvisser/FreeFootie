@@ -28,7 +28,7 @@ var app = express(),
     clientDir = path.join(__dirname, process.env[PUBLIC_DIRECTORY]);
 
 // all environments
-app.use(express.favicon(path.join(clientDir + 'favicon.ico')));
+app.use(express.favicon(path.join(clientDir, 'favicon.ico')));
 app.use(express.logger('dev'));
 
 // load liveReload script only in development mode
