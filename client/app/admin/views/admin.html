@@ -2,7 +2,7 @@
 
 <div class="list">
   <ul>
-    <li ng-repeat="game in games" ng-click="go('admindetails/' + game.id)">
+    <li ng-repeat="game in games" ng-click="go('admindetails/' + game._id)">
 	    <span class="progress" ng-class="game.state || 'notstarted'">
 	    	{{{'inprogress': 'IP', 'complete': 'C', 'null': 'NS'}[game.state]}}
 	    </span>
@@ -27,6 +27,6 @@
 	 	<button class="topcoat-button-bar__button full" ng-click="go('/admin/location')">&nbsp; Locations &nbsp;</button>
 	</div>
 	<div class="topcoat-button-bar__item">
-		<button class="topcoat-button-bar__button full">&nbsp; Divisions &nbsp;</button>
+		<button class="topcoat-button-bar__button full" ng-click="go('/admin/div')">&nbsp; Divisions &nbsp;</button>
 	</div>
 </div>

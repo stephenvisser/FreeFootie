@@ -5,7 +5,7 @@ var express = require('express'),
     games = require('./server/api/games'),
     locations = require('./server/api/locations'),
     players = require('./server/api/players'),
-    pools = require('./server/api/pools'),
+    divisions = require('./server/api/divisions'),
     teams = require('./server/api/teams'),
     SERVER_PORT = 'NODE_SERVER_PORT',
     LIVERELOAD_PORT = 'NODE_LIVERELOAD_PORT',
@@ -13,10 +13,6 @@ var express = require('express'),
 
 if (!process.env[SERVER_PORT]) {
   console.error('Need to set the server port environment variable (run with gulp)');
-  process.exit(1);
-}
-if (!process.env[LIVERELOAD_PORT]) {
-  console.error('Need to set the livereload port environment variable (run with gulp)');
   process.exit(1);
 }
 if (!process.env[PUBLIC_DIRECTORY]) {
@@ -35,7 +31,8 @@ app.use(express.logger('dev'));
 app.configure('development', function() {
   console.log('configuring as development server');
   // live reload script (adds js snippet, but doesn't host server)
-  app.use(livereload({ port: process.env[LIVERELOAD_PORT] }));
+  if (process.env[LIVERELOAD_PORT]) app.use(livereload({ port: process.env[LIVERELOAD_PORT] }));
+
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
@@ -49,8 +46,8 @@ app.post('/api/games', games.save);
 app.get('/api/locations/:id?', locations.get);
 app.post('/api/locations', locations.save);
 
-app.get('/api/pools/:id?', pools.get);
-app.post('/api/pools', pools.save);
+app.get('/api/divisions/:id?', divisions.get);
+app.post('/api/divisions', divisions.save);
 
 app.get('/api/teams/:id?', teams.get);
 app.post('/api/teams', teams.save);

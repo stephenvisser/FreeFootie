@@ -18,20 +18,24 @@ exports.makeValidatable = function(obj, validationRules){
 	};
 
 	obj.copyFrom = function(from){
-		for(var prop in from){	
-			if(prop=='_id'){
-				if(isNaN(from._id))
-					obj.id=from._id.toHexString();
-				else
-					obj.id = from._id;
+		for(var prop in from){
+			if(prop=='_id') {
+				obj._id = from._id;
 			}
-			else if(prop=='id')
-				obj.id=from.id;
 			else if(validationRules[prop])
 				obj[prop]=from[prop];
 		}
 	};
 
+	obj.fetchProperties = function() {
+		var copy = {};
+		for(var prop in obj){
+			if(prop!='_id') {
+				copy[prop]=obj[prop];
+			}
+		}
+		return copy;
+	}
 };
 
 function ensureRequiredDefaults(object, validationRules){
@@ -59,7 +63,7 @@ function evaluateRequiredFields(object, validationRules){
 		var rule = validationRules[key];
 		if(rule.required && object[key] == null)
 			validationErrors.push(rule.displayName+' is required.');
-	});	
+	});
 	return validationErrors;
 }
 
