@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
-    when = require('bun'),
     staticServerService = require('./server/staticServerService');
     livereloadService = require('./server/livereloadService');
     populateDBService = require('./server/populateDBService');
@@ -23,18 +22,9 @@ gulp.task('html', function(){
 
 var cssSrc = 'client/styles/main.less';
 gulp.task('css', function(){
-  var stream = when([
-    gulp.src(cssSrc),
-    less().on('error', function(){}),
-    autoprefixer(),
-    gulp.dest(builddir)]);
-
-
-  stream.on('error', function(err){
-    console.warn(err.message);
-  });
-
-  return stream;
+    return gulp.src(cssSrc)
+	.pipe(less())
+	.pipe(gulp.dest(builddir));
 });
 
 var jsSrc = 'client/**/*.js';
