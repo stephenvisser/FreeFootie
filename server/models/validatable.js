@@ -18,9 +18,10 @@ exports.makeValidatable = function(obj, validationRules){
 	};
 
 	obj.copyFrom = function(from){
-		for(var prop in from){	
-			if(prop=='_id')
-				obj.id = from._id;// from._id.toHexString();
+		for(var prop in from){
+			if(prop=='_id') {
+				obj._id = from._id;
+			}
 			else if(validationRules[prop])
 				obj[prop]=from[prop];
 		}
@@ -53,7 +54,7 @@ function evaluateRequiredFields(object, validationRules){
 		var rule = validationRules[key];
 		if(rule.required && object[key] == null)
 			validationErrors.push(rule.displayName+' is required.');
-	});	
+	});
 	return validationErrors;
 }
 

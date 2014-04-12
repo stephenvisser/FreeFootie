@@ -16,7 +16,7 @@ exports.get = function(req, res){
 			.then(
 				function(results){
 					res.json(results);
-				}, 
+				},
 				createErrorCallback(res));
 	}
 };
@@ -32,7 +32,7 @@ exports.save = function(req, res){
 			res.json(result);
 		}, function(error){
 			res.send(500, 'Oops, something bad happened:'+error);
-		});		
+		});
 };
 
 function createErrorCallback(res){

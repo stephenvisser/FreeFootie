@@ -8,7 +8,6 @@ module.exports = function(url, datafile) {
   return q.all(Object.keys(sampleData).map(function (key) {
 
     var data = sampleData[key].map(function(item){
-      console.log(item._id);
       item._id = mongodb.ObjectId(item._id);
       return item;
     }),

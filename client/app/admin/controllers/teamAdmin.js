@@ -8,7 +8,7 @@ angular.module('freefootieApp')
 
     Pool.query({}, function(pools){
         $scope.pools = pools.reduce(function(obj, pool){
-          obj[pool.id] = pool;
+          obj[pool._id] = pool;
           return obj;
         }, {});
     });
@@ -17,8 +17,8 @@ angular.module('freefootieApp')
       Team.query({}, function(teams) {
       	$scope.divs = teams.reduce(function(obj, team){
   	    	Pool.get({id: team.pool}, function(pool){
-  				if (!obj[pool.id]) obj[pool.id] = [];
-  		    	obj[pool.id].push(team);
+  				if (!obj[pool._id]) obj[pool._id] = [];
+  		    	obj[pool._id].push(team);
   	    	});
   	    	return obj;
   	    }, {});
