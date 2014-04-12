@@ -1,6 +1,6 @@
 var validatable = require('./validatable');
 
-module.exports = function Pool(obj){
+module.exports = function Division(obj){
 
 	validatable.makeValidatable(this, {
 		name: { required: true, displayName: 'Name' }
@@ -11,4 +11,3 @@ module.exports = function Pool(obj){
 
 	this.ensureRequiredDefaults();
 };
-

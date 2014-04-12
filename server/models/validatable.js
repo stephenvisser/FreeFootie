@@ -27,6 +27,15 @@ exports.makeValidatable = function(obj, validationRules){
 		}
 	};
 
+	obj.fetchProperties = function() {
+		var copy = {};
+		for(var prop in obj){
+			if(prop!='_id') {
+				copy[prop]=obj[prop];
+			}
+		}
+		return copy;
+	}
 };
 
 function ensureRequiredDefaults(object, validationRules){

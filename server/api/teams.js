@@ -25,7 +25,7 @@ exports.save = function(req, res){
 
 	var team = new Team(req.body);
 
-	var saveMethod = team.id ? repository.update : repository.add;
+	var saveMethod = team._id ? repository.update : repository.add;
 
 	saveMethod(team)
 		.then(function(result){

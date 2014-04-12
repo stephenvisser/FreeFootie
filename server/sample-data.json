@@ -107,7 +107,7 @@
             "dob": "2000-5-13"
         }
     ],
-    "pools": [
+    "divisions": [
         {
             "_id": "233364636a33d45f22000011",
             "name": "North Pool"
@@ -124,7 +124,7 @@
             "wins": 5,
             "losses": 3,
             "ties": 0,
-            "pool": "233364636a33d45f22000011",
+            "division": "233364636a33d45f22000011",
             "coach": "Ronald",
             "phone": "999-999-1111",
             "school": 3,
@@ -136,7 +136,7 @@
             "wins": 3,
             "losses": 3,
             "ties": 2,
-            "pool": "233364636a33d45f22000011",
+            "division": "233364636a33d45f22000011",
             "coach": "Matilda",
             "phone": "999-999-2222",
             "school": 3,
@@ -148,7 +148,7 @@
             "wins": 0,
             "losses": 5,
             "ties": 3,
-            "pool": "233364636a33d45f22000011",
+            "division": "233364636a33d45f22000011",
             "coach": "Dave",
             "phone": "999-999-3333",
             "school": 3,
@@ -160,7 +160,7 @@
             "wins": 1,
             "losses": 5,
             "ties": 2,
-            "pool": "233364636a33d45f22000012",
+            "division": "233364636a33d45f22000012",
             "coach": "Jack",
             "phone": "999-999-4444",
             "school": 3,
@@ -172,7 +172,7 @@
             "wins": 2,
             "losses": 4,
             "ties": 2,
-            "pool": "233364636a33d45f22000012",
+            "division": "233364636a33d45f22000012",
             "coach": "Zebidiah",
             "phone": "999-999-5555",
             "school": 3,
@@ -184,7 +184,7 @@
             "wins": 4,
             "losses": 1,
             "ties": 3,
-            "pool": "233364636a33d45f22000012",
+            "division": "233364636a33d45f22000012",
             "coach": "Gertrude",
             "phone": "999-999-6666",
             "school": 3,

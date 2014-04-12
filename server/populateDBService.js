@@ -2,7 +2,7 @@ var mongodb = require("mongojs"),
     q = require('q');
 
 module.exports = function(url, datafile) {
-  var db = mongodb.connect(url, ["games", "locations", "players", "pools", "teams"]),
+  var db = mongodb.connect(url, ["games", "locations", "players", "divisions", "teams"]),
       sampleData = JSON.parse(fs.readFileSync(datafile));
 
   return q.all(Object.keys(sampleData).map(function (key) {

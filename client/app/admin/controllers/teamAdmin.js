@@ -4,11 +4,11 @@ angular.module('freefootieApp')
   .controller('TeamAdminCtrl', function ($scope, $resource) {
 
     var Team = $resource('/api/teams/:id');
-    var Pool = $resource('/api/pools/:id');
+    var Division = $resource('/api/divisions/:id');
 
-    Pool.query({}, function(pools){
-        $scope.pools = pools.reduce(function(obj, pool){
-          obj[pool._id] = pool;
+    Division.query({}, function(divisions){
+        $scope.divisions = divisions.reduce(function(obj, division){
+          obj[division._id] = division;
           return obj;
         }, {});
     });
@@ -16,9 +16,9 @@ angular.module('freefootieApp')
     function update() {
       Team.query({}, function(teams) {
       	$scope.divs = teams.reduce(function(obj, team){
-  	    	Pool.get({id: team.pool}, function(pool){
-  				if (!obj[pool._id]) obj[pool._id] = [];
-  		    	obj[pool._id].push(team);
+  	    	Division.get({id: team.division}, function(division){
+  				if (!obj[division._id]) obj[division._id] = [];
+  		    	obj[division._id].push(team);
   	    	});
   	    	return obj;
   	    }, {});
@@ -30,7 +30,7 @@ angular.module('freefootieApp')
     $scope.add = function(name, division) {
       Team.save({
         name: name,
-        pool: division
+        division: division
       }).$promise.then(update);
     }
 });

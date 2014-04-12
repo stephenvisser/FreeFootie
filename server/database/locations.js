@@ -20,7 +20,12 @@ exports.update = function(item){
 	if(!item.validate())
 		deferred.reject(new Error('Invalid location:'+item.getValidationErrors().join('|')));
 	else
-		collection.update( item, mapper.mapCallbackToPromise(deferred, Location, true) );
+		collection.update( item, function(err, result) {
+			//Update returns a strange object instead of the model object. As a result, we can't
+			//use the default mapper
+			if (err) deferred.reject(new Error(err));
+			else deferred.resolve(item);
+		});
 
 	return deferred.promise;
 };

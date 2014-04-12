@@ -7,7 +7,7 @@ module.exports = function Team(obj){
 		wins: { required: false, displayName: 'Wins', defaultValue : 0 },
 		losses: { required: false, displayName: 'Losses', defaultValue : 0 },
 		ties: { required: false, displayName: 'Ties', defaultValue : 0 },
-		pool: {required: true, displayName: 'Pool' },
+		division: {required: true, displayName: 'Division' },
 		coach: {required: false, displayName: 'Coach'},
 		phone: {required: false, displayName: 'Phone'},
 		school: {required: false, displayName: 'School'},
