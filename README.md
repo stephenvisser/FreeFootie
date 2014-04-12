@@ -12,13 +12,14 @@ Starting work on this project is easy. You just need to install the prereqs for 
     git clone https://github.com/ConCode/FreeFootie
     cd FreeFootie
     npm install
+    mongod 
     gulp init
     gulp server
 
 Note: We've recently switched to gulp. You may have to re-run npm install and
 get your head around the new, improved build system
 
-Oh, and mongod will have to be on the CLASSPATH (Windows & OSX)
+Oh, and you'll have to start mongod however you normally do on your system
 
 ###Structure
 This nodejs application has its components split between client and server. Files found in the client directory
