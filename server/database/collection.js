@@ -1,28 +1,23 @@
 var mongojs = require("mongojs");
-var db = require("mongojs").connect("freefootie", 
-	["games", "locations", "players", "pools", "teams"]);
+var db = require("mongojs").connect("freefootie",
+	["games", "locations", "players", "divisions", "teams"]);
 var ObjectId = mongojs.ObjectId;
 var Q = require("q");
 
 module.exports = function(collectionName){
-	
+
 	var collection = db[collectionName];
 
 	this.insert = function(item, callback){
-		collection.insert(item,
-			function(err, results){
-				var single = (results && results.length) ? results[0]:null;
-				callback(err, single);
-			});
+		collection.insert(item, callback);
 	};
 
 	this.update = function(item, callback){
+
 		collection.update(
-			{_id : convertToDbId(item.id)}, 
-			{$set:item},
-			function(err){
-				callback(err, item);
-			}
+			{_id : convertToDbId(item._id)},
+			{$set:item.fetchProperties()},
+			callback
 		);
 	};
 
@@ -37,7 +32,5 @@ module.exports = function(collectionName){
 }
 
 function convertToDbId(id){
-	if(isNaN(id))
-		return ObjectId(id);
-	return id;//return ObjectId(id);
+	return ObjectId(id);
 }

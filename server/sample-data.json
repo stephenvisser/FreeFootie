@@ -1,45 +1,45 @@
 {
     "games": [
         {
-            "_id": "1",
-            "location": 1,
+            "_id": "633364636a33d45f22000011",
+            "location": "533364636a33d45f22000011",
             "date": "<<now~5h>>",
-            "home": 1,
-            "away": 2,
+            "home": "333364636a33d45f22000011",
+            "away": "333364636a33d45f22000012",
             "state": null
         },
         {
-            "_id": "2",
-            "location": 2,
+            "_id": "633364636a33d45f22000012",
+            "location": "533364636a33d45f22000012",
             "date": "<<now~5h>>",
-            "home": 3,
-            "away": 4,
+            "home": "333364636a33d45f22000013",
+            "away": "333364636a33d45f22000014",
             "state": "inprogress"
         },
         {
-            "_id": "3",
-            "location": 3,
+            "_id": "633364636a33d45f22000013",
+            "location": "533364636a33d45f22000013",
             "date": "<<now~5h>>",
-            "home": 5,
-            "away": 6,
+            "home": "333364636a33d45f22000015",
+            "away": "333364636a33d45f22000016",
             "state": "complete"
         }
     ],
     "locations": [
         {
-            "_id": "1",
+            "_id": "533364636a33d45f22000011",
             "name": "Eastglen School",
             "latitude": 53.568033,
             "longitude": -113.446072
         },
         {
-            "_id": "2",
+            "_id": "533364636a33d45f22000012",
             "name": "Highlands School",
             "latitude": 53.56946,
             "longitude": -113.435493
         },
         {
-            "_id": "3",
+            "_id": "533364636a33d45f22000013",
             "name": "Queen Elizabeth High School",
             "latitude": 53.591779,
             "longitude": -113.487721
@@ -47,148 +47,148 @@
     ],
     "players": [
         {
-            "_id": "1",
+            "_id": "133364636a33d45f22000011",
             "name": "John Smith",
             "number": 1,
             "dob": "2000-5-13"
         },
         {
-            "_id": "2",
+            "_id": "133364636a33d45f22000012",
             "name": "Tim Robertson",
             "number": 2,
             "dob": "2000-5-13"
         },
         {
-            "_id": "3",
+            "_id": "133364636a33d45f22000013",
             "name": "Jim McPherson",
             "number": 3,
             "dob": "2000-5-13"
         },
         {
-            "_id": "4",
+            "_id": "133364636a33d45f22000014",
             "name": "Bob Pots",
             "number": 4,
             "dob": "2000-5-13"
         },
         {
-            "_id": "5",
+            "_id": "133364636a33d45f22000015",
             "name": "Ryan Williams",
             "number": 5,
             "dob": "2000-5-13"
         },
         {
-            "_id": "6",
+            "_id": "133364636a33d45f22000016",
             "name": "Norman Iverson",
             "number": 6,
             "dob": "2000-5-13"
         },
         {
-            "_id": "7",
+            "_id": "133364636a33d45f22000017",
             "name": "Charles Thomson",
             "number": 7,
             "dob": "2000-5-13"
         },
         {
-            "_id": "8",
+            "_id": "133364636a33d45f22000018",
             "name": "Jay Sellick",
             "number": 8,
             "dob": "2000-5-13"
         },
         {
-            "_id": "9",
+            "_id": "133364636a33d45f22000019",
             "name": "Trevor Cook",
             "number": 9,
             "dob": "2000-5-13"
         },
         {
-            "_id": "10",
+            "_id": "133364636a33d45f22000020",
             "name": "Krysta Mirzayans",
             "number": 10,
             "dob": "2000-5-13"
         }
     ],
-    "pools": [
+    "divisions": [
         {
-            "_id": "1",
+            "_id": "233364636a33d45f22000011",
             "name": "North Pool"
         },
         {
-            "_id": "2",
+            "_id": "233364636a33d45f22000012",
             "name": "South Pool"
         }
     ],
     "teams": [
         {
-            "_id": "1",
+            "_id": "333364636a33d45f22000011",
             "name": "Ronald's Rhutabagas",
             "wins": 5,
             "losses": 3,
             "ties": 0,
-            "pool": 1,
+            "division": "233364636a33d45f22000011",
             "coach": "Ronald",
             "phone": "999-999-1111",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         },
         {
-            "_id": "2",
+            "_id": "333364636a33d45f22000012",
             "name": "Matilda's Moose",
             "wins": 3,
             "losses": 3,
             "ties": 2,
-            "pool": 1,
+            "division": "233364636a33d45f22000011",
             "coach": "Matilda",
             "phone": "999-999-2222",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         },
         {
-            "_id": "3",
+            "_id": "333364636a33d45f22000014",
             "name": "Dave's Ducks",
             "wins": 0,
             "losses": 5,
             "ties": 3,
-            "pool": 1,
+            "division": "233364636a33d45f22000011",
             "coach": "Dave",
             "phone": "999-999-3333",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         },
         {
-            "_id": "4",
+            "_id": "333364636a33d45f22000015",
             "name": "Jack's Jackalopes",
             "wins": 1,
             "losses": 5,
             "ties": 2,
-            "pool": 2,
+            "division": "233364636a33d45f22000012",
             "coach": "Jack",
             "phone": "999-999-4444",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         },
         {
-            "_id": "5",
+            "_id": "333364636a33d45f22000016",
             "name": "Zebidiah's Zebras",
             "wins": 2,
             "losses": 4,
             "ties": 2,
-            "pool": 2,
+            "division": "233364636a33d45f22000012",
             "coach": "Zebidiah",
             "phone": "999-999-5555",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         },
         {
-            "_id": "6",
+            "_id": "333364636a33d45f22000017",
             "name": "Gertrude's Geese",
             "wins": 4,
             "losses": 1,
             "ties": 3,
-            "pool": 2,
+            "division": "233364636a33d45f22000012",
             "coach": "Gertrude",
             "phone": "999-999-6666",
             "school": 3,
-            "players": [1,2,3,4,9]
+            "players": ["133364636a33d45f22000011","133364636a33d45f22000012","133364636a33d45f22000013","133364636a33d45f22000014","133364636a33d45f22000019"]
         }
     ]
 }

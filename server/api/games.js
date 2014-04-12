@@ -16,7 +16,7 @@ exports.get = function(req, res){
 			.then(
 				function(results){
 					res.json(results);
-				}, 
+				},
 				createErrorCallback(res));
 	}
 };
@@ -25,14 +25,14 @@ exports.save = function(req, res){
 
 	var game = new Game(req.body);
 
-	var saveMethod = game.id ? repository.update : repository.add;
+	var saveMethod = game._id ? repository.update : repository.add;
 
 	saveMethod(game)
 		.then(function(result){
 			res.json(result);
 		}, function(error){
 			res.send(500, 'Oops, something bad happened:'+error);
-		});		
+		});
 };
 
 function createErrorCallback(res){

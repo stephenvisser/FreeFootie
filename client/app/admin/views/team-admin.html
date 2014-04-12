@@ -1,16 +1,16 @@
 
 <div class="topcoat-list">
 	<div ng-repeat="(div, teams) in divs">
-  <h3 class="topcoat-list__header">{{div}}</h3>
+  <h3 class="topcoat-list__header">{{divisions[div].name}}</h3>
   <ul class="topcoat-list__container">
-    <li ng-repeat="team in teams | orderBy:'wins':true" class="topcoat-list__item" ng-click="go('admin/team/' + team.id)">
+    <li ng-repeat="team in teams | orderBy:'wins':true" class="topcoat-list__item" ng-click="go('admin/team/' + team._id)">
      {{team.name}} ({{team.wins}}/{{team.losses}}/{{team.ties}})
      <span class="topcoat-list__expand"></span>
     </li>
     <li class="edit-row">
-        <input type="text" class="topcoat-text-input" placeholder="New Team Name" ng-model="newPlayer.number"/>
+        <input type="text" class="topcoat-text-input" placeholder="New Team Name" ng-model="teams.newTeam"/>
         <span style="flex-grow:1;"></span>
-        <a class="topcoat-button--cta" href="#/admin/team/1">Add</a>
+        <a class="topcoat-button--cta" ng-click="add(teams.newTeam, div)">Add</a>
     </li>
   </ul>
 </div>
