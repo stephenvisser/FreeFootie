@@ -1,5 +1,12 @@
 
-
+<div class="topcoat-navigation-bar">
+	<div class="topcoat-navigation-bar__item left quarter">
+			<button class="topcoat-icon-button" ng-click="go('admin')">< Back</button>
+    </div>
+	<div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Games</h1>
+    </div>
+</div>
 <div class="list">
   <ul>
     <li ng-repeat="game in games" ng-click="go('admin/game/' + game.id)">
@@ -14,19 +21,4 @@
 	    <div class="caret">&#x232a;</div>
     </li>
   </ul>
-</div>
-
-<div class="topcoat-button-bar cta">
-	<div class="topcoat-button-bar__item">
-	 	<button class="topcoat-button-bar__button full" ng-click="go('/admin/team')">&nbsp; Teams &nbsp;</button>
-	</div>
-	<div class="topcoat-button-bar__item">
-	  <button class="topcoat-button-bar__button full no-right" ng-click="go('/admin/game')">&nbsp; Games &nbsp;</button>
-	</div>
-	<div class="topcoat-button-bar__item">
-	 	<button class="topcoat-button-bar__button full" ng-click="go('/admin/location')">&nbsp; Locations &nbsp;</button>
-	</div>
-	<div class="topcoat-button-bar__item">
-		<button class="topcoat-button-bar__button full">&nbsp; Divisions &nbsp;</button>
-	</div>
 </div>

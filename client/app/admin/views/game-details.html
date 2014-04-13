@@ -18,9 +18,27 @@
             <div class="team-info">
 
             <div>
-            <em>Location:</label>
+            <em>Location:</em>
                 <select ng-options="loc.id as loc.name for loc in locations" ng-model="game.location"></select>
-                <br/><br/>
+                
+                </div>
+                <div>
+            <em>Date:</em>
+            <input type="date" ng-model="game.dateobj" value={{item.dateobj}} ng-change="updateDate()"/>
+            </div>
+            <div>
+            <em>Time:</em>
+            <select ng-model="game.timeobj.hours" ng-options="hour as hour for hour in hourOptions" ng-change="updateDate()"></select>
+            <select ng-model="game.timeobj.minutes" ng-options="minute as formatMinute(minute) for minute in minuteOptions" ng-change="updateDate()"></select>
+
+
+            <select ng-model="game.timeobj.isPm" ng-change="updateDate()">
+                <option value="true">PM</option>
+                <option value="false">AM</option>
+            </select>
+            </div>
+             <br/><br/>
+            <div>
             </div>
                 <div>
                     <em>Home Team:</em>
@@ -42,7 +60,7 @@
             </div>
     </ul>
     <button class="topcoat-button" ng-click="save()">Save</button>
-    
+
 </div>
 
 
