@@ -1,16 +1,22 @@
 var mongodb = require("mongojs"),
     fs = require('fs'),
-    q = require('q');
+    q = require('q'),
+    models = {
+      Game: require('./models/game'),
+      Team: require('./models/team'),
+      Player: require('./models/player'),
+      Location: require('./models/location'),
+      Division: require('./models/division')
+    };
 
 module.exports = function(url, datafile) {
-  var db = mongodb.connect(url, ["games", "locations", "players", "divisions", "teams"]),
+  var db = mongodb.connect(url, ["Game", "Location", "Player", "Division", "Team"]),
       sampleData = JSON.parse(fs.readFileSync(datafile));
 
   return q.all(Object.keys(sampleData).map(function (key) {
 
     var data = sampleData[key].map(function(item){
-      item._id = mongodb.ObjectId(item._id);
-      return item;
+      return new models[key](item);
     }),
         deferred = q.defer();
 

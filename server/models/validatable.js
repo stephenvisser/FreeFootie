@@ -1,3 +1,4 @@
+var ObjectId = require("mongojs").ObjectId;
 
 exports.makeValidatable = function(obj, validationRules){
 
@@ -20,7 +21,7 @@ exports.makeValidatable = function(obj, validationRules){
 	obj.copyFrom = function(from){
 		for(var prop in from){
 			if(prop=='_id') {
-				obj._id = from._id;
+				obj._id = new ObjectId(from._id);
 			}
 			else if(validationRules[prop])
 				obj[prop]=from[prop];

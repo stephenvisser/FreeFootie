@@ -1,6 +1,6 @@
 var mongojs = require("mongojs");
 var db = require("mongojs").connect("freefootie",
-	["games", "locations", "players", "divisions", "teams"]);
+	["Game", "Location", "Player", "Division", "Team"]);
 var ObjectId = mongojs.ObjectId;
 var Q = require("q");
 
@@ -15,7 +15,7 @@ module.exports = function(collectionName){
 	this.update = function(item, callback){
 
 		collection.update(
-			{_id : convertToDbId(item._id)},
+			{_id : item._id},
 			{$set:item.fetchProperties()},
 			callback
 		);
