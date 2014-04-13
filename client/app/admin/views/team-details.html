@@ -1,4 +1,11 @@
-<navigation title="currentTeam.name"></navigation>
+<div class="topcoat-navigation-bar">
+	<div class="topcoat-navigation-bar__item left quarter">
+			<button class="topcoat-icon-button" ng-click="go('/admin/team')">< Back</button>
+    </div>
+	<div class="topcoat-navigation-bar__item center half">
+    <h1 class="topcoat-navigation-bar__title">{{currentTeam.name}}</h1>
+    </div>
+</div>
 <div class="topcoat-list">
   <ul class="topcoat-list__container">
     <li class="topcoat-list__item" ng-hide="edit.editing">
