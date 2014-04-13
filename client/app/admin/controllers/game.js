@@ -11,13 +11,13 @@ angular.module('freefootieApp')
           locationsSrc.query(function(locations){
               var locationNames = {};
               locations.forEach(function (l){
-                  locationNames[l.id] = l.name;
+                  locationNames[l._id] = l.name;
               });
 
               teamsSrc.query(function(teams){
                   var teamNames = {};
                   teams.forEach(function (t){
-                      teamNames[t.id] = t.name;
+                      teamNames[t._id] = t.name;
                   });
 
                   games.forEach(function (g) {

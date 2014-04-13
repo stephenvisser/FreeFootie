@@ -1,17 +1,17 @@
 var validatable = require('./validatable');
 
-module.exports = function Location(obj){
+module.exports = function Team(obj){
 
 	validatable.makeValidatable(this, {
 		name: { required: true, displayName: 'Name' },
-		wins: { required: true, displayName: 'Wins', defaultValue : 0 },
-		losses: { required: true, displayName: 'Losses', defaultValue : 0 },
-		ties: { required: true, displayName: 'Ties', defaultValue : 0 },
-		pool: {required: true, displayName: 'Pool' },
-		coach: {required: true, displayName: 'Coach'},
-		phone: {required: true, displayName: 'Phone'},
-		school: {required: true, displayName: 'School'},
-		players: {required: true, displayName: 'Players', defaultValue: []}
+		wins: { required: false, displayName: 'Wins', defaultValue : 0 },
+		losses: { required: false, displayName: 'Losses', defaultValue : 0 },
+		ties: { required: false, displayName: 'Ties', defaultValue : 0 },
+		division: {required: true, displayName: 'Division' },
+		coach: {required: false, displayName: 'Coach'},
+		phone: {required: false, displayName: 'Phone'},
+		school: {required: false, displayName: 'School'},
+		players: {required: false, displayName: 'Players', defaultValue: []}
 	});
 
 	if(obj)
@@ -19,4 +19,3 @@ module.exports = function Location(obj){
 
 	this.ensureRequiredDefaults();
 };
-

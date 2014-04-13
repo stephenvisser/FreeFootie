@@ -11,18 +11,18 @@ angular.module('freefootieApp')
 
     teamsSrc.query(function(teams){
 
-        $scope.team = teams.filter(function(t){t.id === currentTeam})[0];
+        $scope.team = teams.filter(function(t){t._id === currentTeam})[0];
 
         var teamNames = {};
         teams.forEach(function (t){
-            teamNames[t.id] = t.name;
+            teamNames[t._id] = t.name;
         });
 
         gamesSrc.query(function(games) {
             locationsSrc.query(function(locations){
                 var locationNames = {};
                 locations.forEach(function (l){
-                    locationNames[l.id] = l.name;
+                    locationNames[l._id] = l.name;
                 });
 
                 games = games.filter(function(g){

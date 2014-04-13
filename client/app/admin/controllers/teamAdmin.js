@@ -4,15 +4,33 @@ angular.module('freefootieApp')
   .controller('TeamAdminCtrl', function ($scope, $resource) {
 
     var Team = $resource('/api/teams/:id');
-    var Pool = $resource('/api/pools/:id');
+    var Division = $resource('/api/divisions/:id');
 
-    Team.query({}, function(teams) {
-    	$scope.divs = teams.reduce(function(obj, team){
-	    	Pool.get({id: team.pool}, function(pool){
-				if (!obj[pool.name]) obj[pool.name] = [];
-		    	obj[pool.name].push(team);
-	    	});
-	    	return obj;
-	    }, {});
+    Division.query({}, function(divisions){
+        $scope.divisions = divisions.reduce(function(obj, division){
+          obj[division._id] = division;
+          return obj;
+        }, {});
     });
+
+    function update() {
+      Team.query({}, function(teams) {
+      	$scope.divs = teams.reduce(function(obj, team){
+  	    	Division.get({id: team.division}, function(division){
+  				if (!obj[division._id]) obj[division._id] = [];
+  		    	obj[division._id].push(team);
+  	    	});
+  	    	return obj;
+  	    }, {});
+      });
+    }
+
+    update();
+
+    $scope.add = function(name, division) {
+      Team.save({
+        name: name,
+        division: division
+      }).$promise.then(update);
+    }
 });

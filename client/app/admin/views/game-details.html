@@ -19,7 +19,7 @@
 
             <div>
             <em>Location:</em>
-                <select ng-options="loc.id as loc.name for loc in locations" ng-model="game.location"></select>
+                <select ng-options="loc._id as loc.name for loc in locations" ng-model="game.location"></select>
                 
                 </div>
                 <div>
@@ -42,7 +42,7 @@
             </div>
                 <div>
                     <em>Home Team:</em>
-                    <select ng-options="team.id as team.name for team in teams" ng-model="game.home" ng-change="updateTeams()"></select>
+                    <select ng-options="team._id as team.name for team in teams" ng-model="game.home" ng-change="updateTeams()"></select>
                 </div>
                 <div>
                     <em>Coach:</em> <b>{{home.coach}}</b> ({{home.phone}})
@@ -51,7 +51,7 @@
                 <div>
                     <em>Away Team:</em>
 
-                    <select ng-options="team.id as team.name for team in teams" ng-model="game.away" ng-change="updateTeams()"></select>
+                    <select ng-options="team._id as team.name for team in teams" ng-model="game.away" ng-change="updateTeams()"></select>
                 </div>
                 <div>
                     <em>Coach:</em> <b>{{away.coach}}</b> ({{away.phone}})

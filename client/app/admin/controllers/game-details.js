@@ -21,7 +21,7 @@ angular.module('freefootieApp')
     function getTeamById(id){
       for(var i=0; i<$scope.teams.length; i++){
         var team = $scope.teams[i];
-        if(team.id==id)
+        if(team._id==id)
           return team;
       }
       return null;
@@ -39,11 +39,12 @@ angular.module('freefootieApp')
 
     function prepGameObject(item){
        //TEMP WORKAROUND FOR SAMPLE DATA USING MIX OF NUMBERS AND STRINGS..
+        
         if(item.location)
           item.location+='';
 
         if(item.home)
-        item.home+='';
+          item.home+='';
 
         if(item.away)
           item.away+='';

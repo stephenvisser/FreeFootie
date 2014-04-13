@@ -1,0 +1,12 @@
+<div class="topcoat-list">
+    <ul class="topcoat-list__container">
+      <li ng-repeat="div in divs" class="topcoat-list__item">
+        <property title="Name" model="div.name"></property>
+      </li>
+      <li class="topcoat-list__item" ng-show="needsSave">
+        <button class="topcoat-button--cta" ng-click="update()" >Save</button>
+        <button class="topcoat-button" ng-click="cancel()">Cancel</button>
+      </li>
+    </ul>
+</div>
+<a href="#/admin/team">View list of all teams</a>

@@ -39,6 +39,10 @@ angular.module('freefootieApp', ['ngResource', 'ngRoute'])
       templateUrl: 'app/admin/views/team-admin.html',
       controller: 'TeamAdminCtrl'
     })
+    .when('/admin/div', {
+      templateUrl: 'app/admin/views/division-admin.html',
+      controller: 'DivisionAdminCtrl'
+    })
     .when('/admin/scheduler', {
       templateUrl: 'app/admin/views/scheduler.html',
       controller: 'SchedulerCtrl'

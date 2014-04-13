@@ -16,7 +16,7 @@ exports.get = function(req, res){
 			.then(
 				function(results){
 					res.json(results);
-				}, 
+				},
 				createErrorCallback(res));
 	}
 };
@@ -24,15 +24,14 @@ exports.get = function(req, res){
 exports.save = function(req, res){
 	console.log('Saving location...');
 	var location = new Location(req.body);
-console.log(location);
-	var saveMethod = location.id ? repository.update : repository.add;
+	var saveMethod = location._id ? repository.update : repository.add;
 
 	saveMethod(location)
 		.then(function(result){
 			res.json(result);
 		}, function(error){
 			res.send(500, 'Oops, something bad happened:'+error);
-		});		
+		});
 };
 
 function createErrorCallback(res){
