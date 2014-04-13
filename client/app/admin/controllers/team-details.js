@@ -23,7 +23,11 @@ angular.module('freefootieApp')
     $scope.divisions = Division.query();
 
     $scope.update = function(team) {
-      team.$save();
+      team.$save().
+           then(function(){
+             teamCheckpoint = angular.copy(team);
+             $scope.needsSave = false;
+           });
     }
 
     $scope.cancel = function() {
