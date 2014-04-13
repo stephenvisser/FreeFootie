@@ -27,7 +27,15 @@ angular.module('freefootieApp')
       return null;
     }
 
-  	$scope.game = Game.get({id: $routeParams.id},prepGameObject);
+    var idParam = $routeParams.id;
+    if(idParam!='new'){
+    	$scope.game = Game.get({id: $routeParams.id},prepGameObject);
+    }
+    else{
+      $scope.game = new Game();
+      $scope.game.state=null;
+      prepGameObject($scope.game);
+    }
 
     function prepGameObject(item){
        //TEMP WORKAROUND FOR SAMPLE DATA USING MIX OF NUMBERS AND STRINGS..
@@ -43,7 +51,7 @@ angular.module('freefootieApp')
 
         $scope.updateTeams();
 
-        var date = new Date(item.date);
+        var date = new Date(item.date||new Date());
         item.dateobj = $filter("date")(date, 'yyyy-MM-dd');
         item.timeobj =  getTime(date);
       }
@@ -66,7 +74,6 @@ angular.module('freefootieApp')
 
         $scope.game.date=date;
 
-        console.log(date);
       };
 
       $scope.save = function(){
@@ -81,7 +88,6 @@ angular.module('freefootieApp')
 
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+minutes : minutes;
 
         return {
           hours: hours,

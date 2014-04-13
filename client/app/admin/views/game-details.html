@@ -1,6 +1,6 @@
 <div class="topcoat-navigation-bar">
 	<div class="topcoat-navigation-bar__item left quarter">
-			<button class="topcoat-icon-button" ng-click="go('scheduler')">< Back</button>
+			<button class="topcoat-icon-button" ng-click="go('/admin/game')">< Back</button>
     </div>
 	<div class="topcoat-navigation-bar__item center half">
         <h1 class="topcoat-navigation-bar__title">Game Details</h1>
@@ -57,6 +57,12 @@
                     <em>Coach:</em> <b>{{away.coach}}</b> ({{away.phone}})
 
                 </div>
+
+            <div class="btn-group">
+
+<button class="topcoat-button btn-left" ng-class="{selected: game.state==null}" ng-click="game.state=null">Not Started</button><button class="topcoat-button btn-middle" ng-class="{selected:  game.state=='inprogress'}" ng-click="game.state='inprogress'">In Progress</button><button class="topcoat-button btn-right" ng-class="{selected: game.state=='complete'}" ng-click="game.state='complete'">Complete</button>
+                  
+            </div>
             </div>
     </ul>
     <button class="topcoat-button" ng-click="save()">Save</button>
