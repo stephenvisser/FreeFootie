@@ -1,5 +1,5 @@
 {
-    "games": [
+    "Game": [
         {
             "_id": "633364636a33d45f22000011",
             "location": "533364636a33d45f22000011",
@@ -25,7 +25,7 @@
             "state": "complete"
         }
     ],
-    "locations": [
+    "Location": [
         {
             "_id": "533364636a33d45f22000011",
             "name": "Eastglen School",
@@ -45,7 +45,7 @@
             "longitude": -113.487721
         }
     ],
-    "players": [
+    "Player": [
         {
             "_id": "133364636a33d45f22000011",
             "name": "John Smith",
@@ -107,7 +107,7 @@
             "dob": "2000-5-13"
         }
     ],
-    "divisions": [
+    "Division": [
         {
             "_id": "233364636a33d45f22000011",
             "name": "North Pool"
@@ -117,7 +117,7 @@
             "name": "South Pool"
         }
     ],
-    "teams": [
+    "Team": [
         {
             "_id": "333364636a33d45f22000011",
             "name": "Ronald's Rhutabagas",
